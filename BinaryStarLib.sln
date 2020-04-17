@@ -5,26 +5,27 @@ VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib", "BinaryStarLib\BinaryStarLib.csproj", "{D45B2888-063E-4866-87F3-3FE248A36C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.FileSystem", "BinaryStarLib.FileSystem\BinaryStarLib.FileSystem.csproj", "{47B74EA5-EBA4-4F46-A593-C6B1C51596E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.FileSystem", "BinaryStarLib.FileSystem\BinaryStarLib.FileSystem.csproj", "{47B74EA5-EBA4-4F46-A593-C6B1C51596E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Unity", "BinaryStarLib.Unity\BinaryStarLib.Unity.csproj", "{7508C72A-58F1-4B35-8585-3829D29DCE96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Unity", "BinaryStarLib.Unity\BinaryStarLib.Unity.csproj", "{7508C72A-58F1-4B35-8585-3829D29DCE96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Blazor", "BinaryStarLib.Blazor\BinaryStarLib.Blazor.csproj", "{8367ECB2-CC74-4672-B0D3-2938D7FE7CB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Blazor", "BinaryStarLib.Blazor\BinaryStarLib.Blazor.csproj", "{8367ECB2-CC74-4672-B0D3-2938D7FE7CB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Security", "BinaryStarLib.Security\BinaryStarLib.Security.csproj", "{19140020-6E20-433E-9F18-5941B3C287CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Security", "BinaryStarLib.Security\BinaryStarLib.Security.csproj", "{19140020-6E20-433E-9F18-5941B3C287CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Media", "BinaryStarLib.Media\BinaryStarLib.Media.csproj", "{24B43276-FA6F-49B8-B471-134AB47D4C4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Media", "BinaryStarLib.Media\BinaryStarLib.Media.csproj", "{24B43276-FA6F-49B8-B471-134AB47D4C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.OS", "BinaryStarLib.OS\BinaryStarLib.OS.csproj", "{8533398B-75C8-4BF4-8890-A2E5D8F3D0E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.OS", "BinaryStarLib.OS\BinaryStarLib.OS.csproj", "{8533398B-75C8-4BF4-8890-A2E5D8F3D0E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Performance", "BinaryStarLib.Performance\BinaryStarLib.Performance.csproj", "{4990955F-1668-49C2-9D20-04FEB664B553}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Performance", "BinaryStarLib.Performance\BinaryStarLib.Performance.csproj", "{4990955F-1668-49C2-9D20-04FEB664B553}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Network", "BinaryStarLib.Network\BinaryStarLib.Network.csproj", "{B5891799-014C-4490-90FD-9021AC781957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Network", "BinaryStarLib.Network\BinaryStarLib.Network.csproj", "{B5891799-014C-4490-90FD-9021AC781957}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStarLib.Math", "BinaryStarLib.Math\BinaryStarLib.Math.csproj", "{5E44D83B-47FE-4EB5-A871-771664C62C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Math", "BinaryStarLib.Math\BinaryStarLib.Math.csproj", "{5E44D83B-47FE-4EB5-A871-771664C62C48}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D133ED6-3BF1-4438-BE16-A69D4EA0FB6C}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection

@@ -10,8 +10,10 @@ namespace BinaryStarLib
 
         public static bool ParseArgumentsFromArray(string[] args, out List<ParsedArgument> parsedArgs)
         {
-            bool formattingError = false;
             parsedArgs = new List<ParsedArgument>();
+            if (args == null || args.Length == 0) return true;
+
+            bool formattingError = false;
             ParsedArgument currentParsed = default;
             foreach (string a in args)
             {
@@ -34,11 +36,44 @@ namespace BinaryStarLib
             }
             return formattingError;
         }
+    }
 
-        public struct ParsedArgument
+    public struct ParsedArgument : IEquatable<ParsedArgument>
+    {
+        public string Command { get; internal set; }
+        public string Value { get; internal set; }
+
+        public override bool Equals(object obj)
         {
-            public string Command { get; internal set; }
-            public string Value { get; internal set; }
+            try
+            {
+                ParsedArgument other = (ParsedArgument)obj;
+                return other.Command == Command && other.Value == Value;
+            }
+            catch (InvalidCastException) { return false; }
+        }
+
+        public bool Equals(ParsedArgument other)
+        {
+            return other.Command == Command && other.Value == Value;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return Command.GetHashCode() ^ Value.GetHashCode();
+            }
+        }
+
+        public static bool operator ==(ParsedArgument left, ParsedArgument right)
+        {
+            return left == right;
+        }
+
+        public static bool operator !=(ParsedArgument left, ParsedArgument right)
+        {
+            return !(left == right);
         }
     }
 }
