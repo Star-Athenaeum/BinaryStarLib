@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Runtime;
-using System.Diagnostics;
-using System.Reflection;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,11 +12,11 @@ public sealed class Logger
     static Logger()
     {
         Console.BufferWidth = Console.WindowWidth;
+        LoggerInstance = new Logger();
     }
 
     public Logger()
     {
-        LoggerInstance = this;
         LogThread = new Thread(() =>
         {
             while (true)
