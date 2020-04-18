@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,8 +23,13 @@ public sealed class Logger
             while (true)
             {
                 LogPackage pckg = PackageQueue.Take();
-                Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
-                    + "][" + pckg.Level.ToString() + "]: " + pckg.Message);
+                if (pckg.PostTime != null)
+                {
+                    Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                        + "][" + pckg.Level.ToString() + "]: " + pckg.Message);
+                }
+                else if (pckg.Message.All(c => c == '-')) Console.WriteLine(pckg.Message);
+                else Console.WriteLine();
             }
         });
         LogThread.IsBackground = true;
@@ -42,10 +48,20 @@ public sealed class Logger
         return Task.CompletedTask;
     }
 
+    public static Task NewLine()
+    {
+        LoggerInstance.PackageQueue.Add(new LogPackage());
+        return Task.CompletedTask;
+    }
+
     public static Task DivideBuffer()
     {
         string s = string.Empty;
         for (int i = 0; i < Console.BufferWidth - 1; i++) s += "-";
+        LoggerInstance.PackageQueue.Add(new LogPackage
+        {
+            Message = s
+        });
         return Task.CompletedTask;
     }
 
