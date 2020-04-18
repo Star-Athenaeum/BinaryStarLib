@@ -6,3 +6,6 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Performance", "CA1810:Initialize reference type static fields inline", Justification = "<Pending>", Scope = "member", Target = "~M:Logger.#cctor")]
+[assembly: SuppressMessage("Globalization", "CA1307:Specify StringComparison", Justification = "<Pending>", Scope = "member", Target = "~M:System.DirectoryInfoExtensions.ContainsDirectory(System.IO.DirectoryInfo,System.String)~System.Boolean")]
+[assembly: SuppressMessage("Globalization", "CA1307:Specify StringComparison", Justification = "<Pending>", Scope = "member", Target = "~M:System.DirectoryInfoExtensions.ContainsAnyDirectory(System.IO.DirectoryInfo,System.String[])~System.Boolean")]
+[assembly: SuppressMessage("Globalization", "CA1307:Specify StringComparison", Justification = "<Pending>", Scope = "member", Target = "~M:System.DirectoryInfoExtensions.ContainsAllDirectories(System.IO.DirectoryInfo,System.String[])~System.Boolean")]
