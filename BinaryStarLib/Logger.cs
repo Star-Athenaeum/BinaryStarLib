@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace BinaryStarLib
 {
@@ -10,17 +11,31 @@ namespace BinaryStarLib
         private Thread LogThread { get; }
         private BlockingCollection<LogPackage> PackageQueue { get; } = new BlockingCollection<LogPackage>();
 
+        static Logger()
+        {
+            Console.BufferWidth = Console.WindowWidth;
+        }
+
         public Logger(Type type)
         {
             if (type == null) throw new ArgumentNullException(nameof(type));
             if (!type.HasMethod("Main")) throw new MissingMethodException(type.Name, "Main");
             LogType = type;
-            LogThread = new Thread(() => { while (true) { Console.WriteLine(PackageQueue.Take()); } });
+            LogThread = new Thread(() => 
+            {
+                while (true) 
+                {
+                    LogPackage pckg = PackageQueue.Take();
+                    Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                        + "][" + pckg.LoggerName + "][" + pckg.Level.ToString() + "]: " + pckg.Message);
+                } 
+            });
             LogThread.IsBackground = true;
             LogThread.Start();
+            ClearBuffer();
         }
 
-        public void Log(LogLevel level = LogLevel.Info, string msg = null)
+        public Task Log(LogLevel level = LogLevel.Info, string msg = null)
         {
             PackageQueue.Add(new LogPackage
             {
@@ -29,6 +44,20 @@ namespace BinaryStarLib
                 LoggerName = LogType.Name,
                 Message = msg
             });
+            return Task.CompletedTask;
+        }
+
+        public Task DivideBuffer()
+        {
+            string s = string.Empty;
+            for (int i = 0; i < Console.BufferWidth - 1; i++) s += "-";
+            return Task.CompletedTask;
+        }
+
+        public Task ClearBuffer()
+        {
+            Console.Clear();
+            return Task.CompletedTask;
         }
     }
 
