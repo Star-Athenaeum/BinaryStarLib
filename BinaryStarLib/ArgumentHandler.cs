@@ -60,10 +60,7 @@ namespace BSL
 
         public override int GetHashCode()
         {
-            unchecked
-            {
-                return Command.GetHashCode() ^ Value.GetHashCode();
-            }
+            return Command.GetHashCode() ^ Value.GetHashCode();
         }
 
         public static bool operator ==(ParsedArgument left, ParsedArgument right)
