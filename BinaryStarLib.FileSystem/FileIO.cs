@@ -8,9 +8,6 @@ namespace BSL.FileSystem
 {
     public static class FileIO
     {
-        public static DirectoryInfo ApplicationDirectory { get; } = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-        public static DirectoryInfo AppDataDirectory { get; } = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-
         private static ConcurrentDictionary<FileInfo, FileStream> ConcurrentOpenStreams { get; } = new ConcurrentDictionary<FileInfo, FileStream>();
 
         public static async Task Write(FileInfo info, object data, FileMode mode = FileMode.Open, FileAccess access = FileAccess.ReadWrite, FileShare share = FileShare.ReadWrite)

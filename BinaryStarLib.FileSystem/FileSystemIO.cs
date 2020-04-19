@@ -6,6 +6,9 @@ namespace BSL.FileSystem
 {
 	public static class FileSystemIO
 	{
+		public static DirectoryInfo ApplicationDirectory { get; } = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+		public static DirectoryInfo AppDataDirectory { get; } = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+
 		public static Task Create(FileInfo info)
 		{
 			if (info == null) throw new ArgumentNullException(nameof(info));
