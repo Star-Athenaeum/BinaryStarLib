@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace BSL.Extensions
+namespace System
 {
     public static class ObjectExtensions
     {
