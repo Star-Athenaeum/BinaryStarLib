@@ -75,7 +75,7 @@ namespace BSL.FileSystem
             foreach (FileStream stream in ConcurrentOpenStreams.Values) await stream.DisposeAsync();
         }
 
-        public static async Task NullifyFileAsync(FileInfo info)
+        public static async Task NullifyFile(FileInfo info)
         {
             if (info == null) throw new ArgumentNullException(nameof(info));
             await File.WriteAllTextAsync(info.FullName, string.Empty);
