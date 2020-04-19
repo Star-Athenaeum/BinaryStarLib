@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BinaryStarLib.FileSystem
+namespace BSL.FileSystem
 {
     public static class FileSystemIO
     {

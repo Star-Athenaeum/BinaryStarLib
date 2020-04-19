@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <Platforms>x64</Platforms>
+    <AssemblyName>BinaryStarLib</AssemblyName>
+    <RootNamespace>BSL</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

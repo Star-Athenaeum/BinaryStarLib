@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BinaryStarLib
+namespace BSL
 {
     public static class ArgumentHandler
     {
