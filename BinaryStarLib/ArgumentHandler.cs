@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BSL
 {
     public static class ArgumentHandler
     {
-        internal static char CommandChar = '-';
-        internal static char CommandArgumentBorderChar = '"';
+        public static char CommandChar { get; set; } = '-';
 
-        public static bool ParseArgumentsFromArray(string[] args, out List<ParsedArgument> parsedArgs)
+        public static Task ParseArgumentsFromArray(string[] args, out List<ParsedArgument> parsedArgs)
         {
             parsedArgs = new List<ParsedArgument>();
-            if (args == null || args.Length == 0) return true;
-
-            bool formattingError = false;
             ParsedArgument currentParsed = default;
             foreach (string a in args)
             {
-                if (a.StartsWith(CommandChar)) currentParsed.Command = a[1..];
-                else ResetParsedArgumentInstance(currentParsed);
-                if (a.StartsWith(CommandArgumentBorderChar) && a.EndsWith(CommandArgumentBorderChar)) currentParsed.Value = a[1..];
-                else ResetParsedArgumentInstance(currentParsed);
-
-                void ResetParsedArgumentInstance(ParsedArgument instance)
+                if (currentParsed.Command != null && currentParsed.Value != null)
                 {
-                    instance = default;
-                    formattingError = true;
+                    parsedArgs.Add(currentParsed);
+                    currentParsed = default;
                 }
+                else if (a.StartsWith(CommandChar) && currentParsed.Command != null && currentParsed.Value == null)
+                {
+                    throw new ArgumentException("Argument order is wrong or a command value is missing!", nameof(args));
+                }
+                else if (a.StartsWith(CommandChar) && currentParsed.Command == null) currentParsed.Command = a[1..];
+                else if (!a.StartsWith(CommandChar) && currentParsed.Command != null && currentParsed.Value == null) currentParsed.Value = a;
 
                 if (currentParsed.Command != null && currentParsed.Value != null)
                 {
@@ -34,7 +32,7 @@ namespace BSL
                     currentParsed = default;
                 }
             }
-            return formattingError;
+            return Task.CompletedTask;
         }
     }
 
