@@ -37,13 +37,13 @@ public sealed class Logger
         ClearBuffer();
     }
 
-    public static Task Log(LogLevel level = LogLevel.Info, string msg = null)
+    public static Task Log(LogLevel level, object msg)
     {
         LoggerInstance.PackageQueue.Add(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = level,
-            Message = msg
+            Message = msg.ToString()
         });
         return Task.CompletedTask;
     }
