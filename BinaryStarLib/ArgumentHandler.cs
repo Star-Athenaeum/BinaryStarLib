@@ -10,13 +10,13 @@ namespace BSL
 
         public static Task ParseArgumentsFromArray(string[] args, out List<ParsedArgument> parsedArgs)
         {
-            parsedArgs = new List<ParsedArgument>();
+            List<ParsedArgument> parsedArgsList = new List<ParsedArgument>();
             ParsedArgument currentParsed = default;
             foreach (string a in args)
             {
                 if (currentParsed.Command != null && currentParsed.Value != null)
                 {
-                    parsedArgs.Add(currentParsed);
+                    parsedArgsList.Add(currentParsed);
                     currentParsed = default;
                 }
                 else if (a.StartsWith(CommandChar) && currentParsed.Command != null && currentParsed.Value == null)
@@ -28,10 +28,11 @@ namespace BSL
 
                 if (currentParsed.Command != null && currentParsed.Value != null)
                 {
-                    parsedArgs.Add(currentParsed);
+                    parsedArgsList.Add(currentParsed);
                     currentParsed = default;
                 }
             }
+            parsedArgs = parsedArgsList;
             return Task.CompletedTask;
         }
     }
