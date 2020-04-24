@@ -47,7 +47,8 @@ namespace BSL.FileSystem
             string data = null;
             if (ConcurrentOpenStreams.ContainsKey(info))
             {
-                using (StreamReader reader = new StreamReader(ConcurrentOpenStreams[info])) data = await reader.ReadToEndAsync();
+                using StreamReader reader = new StreamReader(ConcurrentOpenStreams[info]);
+                data = await reader.ReadToEndAsync();
             }
             else using (StreamReader reader = new StreamReader(new FileStream(info.FullName, mode, access, share))) data = await reader.ReadToEndAsync();
             return data;
