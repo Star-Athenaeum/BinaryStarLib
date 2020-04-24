@@ -32,9 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{151E9BA3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib", "BinaryStarLib\BinaryStarLib.csproj", "{BEFD3F36-9845-4A6F-B88B-FB360ABE9791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgumentHandlerTests", "ArgumentHandlerTests\ArgumentHandlerTests.csproj", "{2F3F34F9-6D2E-4A69-8D20-189FD44F14EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArgumentHandlerTests", "ArgumentHandlerTests\ArgumentHandlerTests.csproj", "{2F3F34F9-6D2E-4A69-8D20-189FD44F14EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerTests", "LoggerTests\LoggerTests.csproj", "{3D63B94D-7AF2-4251-8D3E-DB35FC6D5E71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerTests", "LoggerTests\LoggerTests.csproj", "{3D63B94D-7AF2-4251-8D3E-DB35FC6D5E71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemTests", "FileSystemTests\FileSystemTests.csproj", "{91371765-36FD-4017-B4B4-EFA70079A5F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +140,14 @@ Global
 		{3D63B94D-7AF2-4251-8D3E-DB35FC6D5E71}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D63B94D-7AF2-4251-8D3E-DB35FC6D5E71}.Release|x64.ActiveCfg = Release|Any CPU
 		{3D63B94D-7AF2-4251-8D3E-DB35FC6D5E71}.Release|x64.Build.0 = Release|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Release|x64.ActiveCfg = Release|Any CPU
+		{91371765-36FD-4017-B4B4-EFA70079A5F3}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,6 +155,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2F3F34F9-6D2E-4A69-8D20-189FD44F14EF} = {151E9BA3-E997-46E2-A91B-45095CDDFA5C}
 		{3D63B94D-7AF2-4251-8D3E-DB35FC6D5E71} = {151E9BA3-E997-46E2-A91B-45095CDDFA5C}
+		{91371765-36FD-4017-B4B4-EFA70079A5F3} = {151E9BA3-E997-46E2-A91B-45095CDDFA5C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B39B28A-F246-46E8-81CE-D03C613508C8}
