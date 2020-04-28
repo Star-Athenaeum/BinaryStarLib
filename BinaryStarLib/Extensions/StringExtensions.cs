@@ -79,5 +79,12 @@ namespace System
             }
             return locations;
         }
+
+        public static bool EndsWithAny(this string str, IEnumerable<string> possibilities)
+        {
+            bool success = false;
+            foreach (string s in possibilities) success = str.EndsWith(s);
+            return success;
+        }
     }
 }
