@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNext" Version="2.2.0" />
-    <PackageReference Include="DotNext.Reflection" Version="2.2.0" />
-    <PackageReference Include="DotNext.Threading" Version="2.2.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0-beta3.final">
+    <PackageReference Include="DotNext" Version="2.3.0" />
+    <PackageReference Include="DotNext.Reflection" Version="2.3.0" />
+    <PackageReference Include="DotNext.Threading" Version="2.3.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
