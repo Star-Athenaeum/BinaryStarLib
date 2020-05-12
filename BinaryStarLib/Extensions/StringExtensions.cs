@@ -82,9 +82,11 @@ namespace System
 
         public static bool EndsWithAny(this string str, IEnumerable<string> possibilities)
         {
-            bool success = false;
-            foreach (string s in possibilities) success = str.EndsWith(s);
-            return success;
+            foreach (string s in possibilities)
+            {
+                if (str.EndsWith(s)) return true;
+            }
+            return false;
         }
     }
 }
