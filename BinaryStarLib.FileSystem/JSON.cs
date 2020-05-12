@@ -19,7 +19,7 @@ namespace BSL.FileSystem
 		public static async Task<T> ReadJSON<T>(FileInfo info) where T : new()
 		{
 			if (info == null) throw new ArgumentNullException(nameof(info));
-			return (T)JsonConvert.DeserializeObject(await FileIO.ReadText(info));
+			return JsonConvert.DeserializeObject<T>(await FileIO.ReadText(info));
 		}
 	}
 }
