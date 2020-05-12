@@ -1,13 +1,26 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace BSL.FileSystem
 {
 	public static class FileSystemIO
 	{
 		public static DirectoryInfo ApplicationDirectory { get; } = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-		public static DirectoryInfo AppDataDirectory { get; } = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+		public static DirectoryInfo AppDataDirectory { get; }
+
+		static FileSystemIO()
+		{
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+			{
+				AppDataDirectory = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+			}
+			else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+			{
+
+			}
+		}
 
 		public static Task Create(FileInfo info)
 		{
