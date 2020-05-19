@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 
 namespace BSL.FileSystem
 {
-	public static class FileSystemIO
+	public static class FileSystemHelper
 	{
 		public static DirectoryInfo ApplicationDirectory { get; } = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
 		public static DirectoryInfo AppDataDirectory { get; }
 
-		static FileSystemIO()
+		static FileSystemHelper()
 		{
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 			{

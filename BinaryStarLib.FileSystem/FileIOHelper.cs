@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 
 namespace BSL.FileSystem
 {
-    public static class FileIO
+    public static class FileIOHelper
     {
         private static ConcurrentDictionary<FileInfo, FileStream> ConcurrentOpenStreams { get; } = new ConcurrentDictionary<FileInfo, FileStream>();
 
