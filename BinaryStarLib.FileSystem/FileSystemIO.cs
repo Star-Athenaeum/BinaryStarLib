@@ -49,7 +49,7 @@ namespace BSL.FileSystem
 			Directory.Delete(info.FullName);
 			return Task.CompletedTask;
 		}
-
+		/*
 		public static Task RecycleFile(FileInfo info)
 		{
 			if (info == null) throw new ArgumentNullException(nameof(info));
@@ -66,7 +66,7 @@ namespace BSL.FileSystem
 				Microsoft.VisualBasic.FileIO.UIOption.AllDialogs, 
 				Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
 			return Task.CompletedTask;
-		}
+		}*/
 
 		public static Task Move(FileInfo from, FileInfo to)
 		{
