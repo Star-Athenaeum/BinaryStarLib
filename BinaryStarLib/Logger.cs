@@ -3,31 +3,59 @@ using System.Linq;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 public static class Logger
 {
     private static BlockingCollection<LogPackage> PackageQueue { get; } = new BlockingCollection<LogPackage>();
     private static Thread LogThread { get; }
+    private static bool IsWebPlatform { get; }
 
     static Logger()
     {
-        Console.BufferWidth = Console.WindowWidth;
-        LogThread = new Thread(() =>
+        IsWebPlatform = RuntimeInformation.FrameworkDescription.Contains("Mono") && RuntimeInformation.FrameworkDescription.Contains("wasm");
+        if (IsWebPlatform)
         {
-            while (true)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                LogPackage pckg = PackageQueue.Take();
-                if (pckg.ClearMode == ClearMode.None) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][" + pckg.Level.ToString() + "]: " + pckg.Message);
-                else if (pckg.ClearMode == ClearMode.ClearBuffer) Console.Clear();
-                else if (pckg.ClearMode == ClearMode.EmptyLine) Console.WriteLine();
-                else if (pckg.ClearMode == ClearMode.NoFormatting) Console.WriteLine(pckg.Message);
+
             }
-        })
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+
+            }
+
+        }
+        else
         {
-            IsBackground = true
-        };
-        LogThread.Start();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.BufferWidth = Console.WindowWidth;
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+
+            }
+            LogThread = new Thread(() =>
+            {
+                while (true) PushLog();
+            })
+            {
+                IsBackground = true
+            };
+            LogThread.Start();
+        }
         ClearBuffer();
+    }
+
+    private static Task PushLog()
+    {
+        LogPackage pckg = PackageQueue.Take();
+        if (pckg.ClearMode == ClearMode.None) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][" + pckg.Level.ToString() + "]: " + pckg.Message);
+        else if (pckg.ClearMode == ClearMode.ClearBuffer) Console.Clear();
+        else if (pckg.ClearMode == ClearMode.EmptyLine) Console.WriteLine();
+        else if (pckg.ClearMode == ClearMode.NoFormatting) Console.WriteLine(pckg.Message);
+        return Task.CompletedTask;
     }
 
     public static Task Log(LogLevel level, object msg)
@@ -38,7 +66,8 @@ public static class Logger
             Level = level,
             Message = msg.ToString()
         });
-        return Task.CompletedTask;
+        if (IsWebPlatform) return PushLog();
+        else return Task.CompletedTask;
     }
 
     public static Task NewLine()
@@ -47,28 +76,34 @@ public static class Logger
         {
             ClearMode = ClearMode.EmptyLine
         });
-        return Task.CompletedTask;
+        if (IsWebPlatform) return PushLog();
+        else return Task.CompletedTask;
     }
 
     public static Task DivideBuffer()
     {
         string s = string.Empty;
-        for (int i = 0; i < Console.BufferWidth - 1; i++) s += "-";
+        for (int i = 0; i < (IsWebPlatform ? 100 : Console.BufferWidth) - 1; i++) s += "-";
         PackageQueue.Add(new LogPackage
         {
             ClearMode = ClearMode.NoFormatting,
             Message = s
         });
-        return Task.CompletedTask;
+        if (IsWebPlatform) return PushLog();
+        else return Task.CompletedTask;
     }
 
     public static Task ClearBuffer()
     {
-        PackageQueue.Add(new LogPackage
+        if (IsWebPlatform) return DivideBuffer();
+        else
         {
-            ClearMode = ClearMode.ClearBuffer
-        });
-        return Task.CompletedTask;
+            PackageQueue.Add(new LogPackage
+            {
+                ClearMode = ClearMode.ClearBuffer
+            });
+            return Task.CompletedTask;
+        }
     }
 }
 
