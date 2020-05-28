@@ -12,24 +12,22 @@ namespace BSL
         {
             List<ParsedArgument> parsedArgsList = new List<ParsedArgument>();
             ParsedArgument currentParsed = default;
-            foreach (string a in args)
+            for (int i = 0; i < args.Length; i++)
             {
-                if (currentParsed.Command != null && currentParsed.Value != null)
+                if (args[i].StartsWith(CommandChar) && currentParsed.Command == null && currentParsed.Value == null)
                 {
-                    parsedArgsList.Add(currentParsed);
-                    currentParsed = default;
-                }
-                else if (a.StartsWith(CommandChar) && currentParsed.Command != null && currentParsed.Value == null)
-                {
-                    throw new ArgumentException("Argument order is wrong or a command value is missing!", nameof(args));
-                }
-                else if (a.StartsWith(CommandChar) && currentParsed.Command == null) currentParsed.Command = a[1..];
-                else if (!a.StartsWith(CommandChar) && currentParsed.Command != null && currentParsed.Value == null) currentParsed.Value = a;
-
-                if (currentParsed.Command != null && currentParsed.Value != null)
-                {
-                    parsedArgsList.Add(currentParsed);
-                    currentParsed = default;
+                    currentParsed.Command = args[i][1..];
+                    if (i + 1 < args.Length && !args[i + 1].StartsWith("-"))
+                    {
+                        currentParsed.Value = args[i + 1];
+                        parsedArgsList.Add(currentParsed);
+                        currentParsed = default;
+                    }
+                    else if (i + 1 < args.Length && args[i + 1].StartsWith("-"))
+                    {
+                        parsedArgsList.Add(currentParsed);
+                        currentParsed = default;
+                    }
                 }
             }
             parsedArgs = parsedArgsList;
