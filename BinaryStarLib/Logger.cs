@@ -51,10 +51,14 @@ public static class Logger
     private static Task PushLog()
     {
         LogPackage pckg = PackageQueue.Take();
+        if (pckg.Level == LogLevel.Warn) Console.ForegroundColor = ConsoleColor.Yellow;
+        else if (pckg.Level == LogLevel.Error) Console.ForegroundColor = ConsoleColor.Red;
+        else Console.ForegroundColor = ConsoleColor.White;
         if (pckg.ClearMode == ClearMode.None) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][" + pckg.Level.ToString() + "]: " + pckg.Message);
         else if (pckg.ClearMode == ClearMode.ClearBuffer) Console.Clear();
         else if (pckg.ClearMode == ClearMode.EmptyLine) Console.WriteLine();
         else if (pckg.ClearMode == ClearMode.NoFormatting) Console.WriteLine(pckg.Message);
+        Console.ForegroundColor = ConsoleColor.White;
         return Task.CompletedTask;
     }
 
