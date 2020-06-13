@@ -68,7 +68,7 @@ public static class Logger
         {
             PostTime = DateTime.Now,
             Level = level,
-            Message = msg.ToString()
+            Message = msg != null ? msg.ToString() : "null"
         });
         if (IsWebPlatform) return PushLog();
         else return Task.CompletedTask;
