@@ -16,15 +16,7 @@ public static class Logger
         IsWebPlatform = RuntimeInformation.FrameworkDescription.Contains("Mono") && RuntimeInformation.FrameworkDescription.Contains("wasm");
         if (IsWebPlatform)
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-
-            }
-
+            // Placeholder
         }
         else
         {
@@ -34,7 +26,7 @@ public static class Logger
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-
+                // Is it supported yet?
             }
             LogThread = new Thread(() =>
             {
