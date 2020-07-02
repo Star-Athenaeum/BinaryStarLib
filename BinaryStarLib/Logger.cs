@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 public static class Logger
 {
-    private static BlockingCollection<LogPackage> PackageQueue { get; } = new BlockingCollection<LogPackage>();
+    private static ConcurrentQueue<LogPackage> PackageQueue { get; } = new ConcurrentQueue<LogPackage>();
     private static Thread LogThread { get; }
     private static bool IsWebPlatform { get; }
 
@@ -30,28 +30,30 @@ public static class Logger
 
     private static Task PushLog()
     {
-        LogPackage pckg = PackageQueue.Take();
-        if (pckg.Level == 1) Console.ForegroundColor = ConsoleColor.Yellow;
-        else if (pckg.Level == 2) Console.ForegroundColor = ConsoleColor.Red;
-        else Console.ForegroundColor = ConsoleColor.White;
-        if (pckg.ClearMode == 0)
+        if (PackageQueue.TryDequeue(out LogPackage pckg))
         {
-            if (pckg.Level == 0) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]: " + pckg.Message);
-            else if (pckg.Level == 1) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][WARN]: " + pckg.Message);
-            else if (pckg.Level == 2) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][ERROR]: " + pckg.Message);
-            else if (pckg.Level == 3) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][DEBUG]: " + pckg.Message);
-            else Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]: " + pckg.Message);
+            if (pckg.Level == 1) Console.ForegroundColor = ConsoleColor.Yellow;
+            else if (pckg.Level == 2) Console.ForegroundColor = ConsoleColor.Red;
+            else Console.ForegroundColor = ConsoleColor.White;
+            if (pckg.ClearMode == 0)
+            {
+                if (pckg.Level == 0) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]: " + pckg.Message);
+                else if (pckg.Level == 1) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][WARN]: " + pckg.Message);
+                else if (pckg.Level == 2) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][ERROR]: " + pckg.Message);
+                else if (pckg.Level == 3) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][DEBUG]: " + pckg.Message);
+                else Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]: " + pckg.Message);
+            }
+            else if (pckg.ClearMode == 3) Console.Clear();
+            else if (pckg.ClearMode == 2) Console.WriteLine();
+            else if (pckg.ClearMode == 1) Console.WriteLine(pckg.Message);
+            Console.ForegroundColor = ConsoleColor.White;
         }
-        else if (pckg.ClearMode == 3) Console.Clear();
-        else if (pckg.ClearMode == 2) Console.WriteLine();
-        else if (pckg.ClearMode == 1) Console.WriteLine(pckg.Message);
-        Console.ForegroundColor = ConsoleColor.White;
         return Task.CompletedTask;
     }
 
     public static Task LogInfo(object msg)
     {
-        PackageQueue.Add(new LogPackage
+        PackageQueue.Enqueue(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 0,
@@ -63,7 +65,7 @@ public static class Logger
 
     public static Task LogWarn(object msg)
     {
-        PackageQueue.Add(new LogPackage
+        PackageQueue.Enqueue(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 1,
@@ -75,7 +77,7 @@ public static class Logger
 
     public static Task LogError(object msg)
     {
-        PackageQueue.Add(new LogPackage
+        PackageQueue.Enqueue(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 2,
@@ -88,7 +90,7 @@ public static class Logger
     public static Task LogDebug(object msg)
     {
 #if DEBUG
-        PackageQueue.Add(new LogPackage
+        PackageQueue.Enqueue(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 3,
@@ -103,7 +105,7 @@ public static class Logger
 
     public static Task NewLine()
     {
-        PackageQueue.Add(new LogPackage { ClearMode = 2 });
+        PackageQueue.Enqueue(new LogPackage { ClearMode = 2 });
         if (IsWebPlatform) return PushLog();
         else return Task.CompletedTask;
     }
@@ -112,7 +114,7 @@ public static class Logger
     {
         string s = string.Empty;
         for (int i = 0; i < (IsWebPlatform ? 100 : Console.BufferWidth) - 1; i++) s += "-";
-        PackageQueue.Add(new LogPackage
+        PackageQueue.Enqueue(new LogPackage
         {
             ClearMode = 1,
             Message = s
@@ -124,7 +126,7 @@ public static class Logger
     public static Task ClearBuffer()
     {
         if (IsWebPlatform) return DivideBuffer();
-        else PackageQueue.Add(new LogPackage { ClearMode = 3 });
+        else PackageQueue.Enqueue(new LogPackage { ClearMode = 3 });
         return Task.CompletedTask;
     }
 }
