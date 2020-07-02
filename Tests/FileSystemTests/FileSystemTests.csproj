@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BinaryStarLib.FileSystem\BinaryStarLib.FileSystem.csproj" />
+    <ProjectReference Include="..\..\BinaryStarLib\BinaryStarLib.csproj" />
     <ProjectReference Include="..\BinaryStarLib.FileSystem\BinaryStarLib.FileSystem.csproj" />
     <ProjectReference Include="..\BinaryStarLib\BinaryStarLib.csproj" />
   </ItemGroup>
