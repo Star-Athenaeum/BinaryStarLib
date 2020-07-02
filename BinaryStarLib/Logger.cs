@@ -16,8 +16,8 @@ public static class Logger
         IsWebPlatform = RuntimeInformation.FrameworkDescription.Contains("Mono") && RuntimeInformation.FrameworkDescription.Contains("wasm");
         if (!IsWebPlatform)
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) Console.BufferWidth = Console.WindowWidth;
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) { /* Is it supported yet? */ }
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))        Console.BufferWidth = Console.WindowWidth;
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))     { /* Is it supported yet? */ }
             LogThread = new Thread(() =>
             {
                 while (true) PushLog();
@@ -32,20 +32,20 @@ public static class Logger
     {
         if (PackageQueue.TryDequeue(out LogPackage pckg))
         {
-            if (pckg.Level == 1) Console.ForegroundColor = ConsoleColor.Yellow;
-            else if (pckg.Level == 2) Console.ForegroundColor = ConsoleColor.Red;
-            else Console.ForegroundColor = ConsoleColor.White;
+            if (pckg.Level == 1)            Console.ForegroundColor = ConsoleColor.Yellow;
+            else if (pckg.Level == 2)       Console.ForegroundColor = ConsoleColor.Red;
+            else                            Console.ForegroundColor = ConsoleColor.White;
             if (pckg.ClearMode == 0)
             {
-                if (pckg.Level == 0) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]:  " + pckg.Message);
-                else if (pckg.Level == 1) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][WARN]:  " + pckg.Message);
-                else if (pckg.Level == 2) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][ERROR]: " + pckg.Message);
-                else if (pckg.Level == 3) Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][DEBUG]: " + pckg.Message);
-                else Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]: " + pckg.Message);
+                if (pckg.Level == 0)        Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]:  " + pckg.Message);
+                else if (pckg.Level == 1)   Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][WARN]:  " + pckg.Message);
+                else if (pckg.Level == 2)   Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][ERROR]: " + pckg.Message);
+                else if (pckg.Level == 3)   Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][DEBUG]: " + pckg.Message);
+                else                        Console.WriteLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") + "][INFO]: " + pckg.Message);
             }
-            else if (pckg.ClearMode == 3) Console.Clear();
-            else if (pckg.ClearMode == 2) Console.WriteLine();
-            else if (pckg.ClearMode == 1) Console.WriteLine(pckg.Message);
+            else if (pckg.ClearMode == 3)   Console.Clear();
+            else if (pckg.ClearMode == 2)   Console.WriteLine();
+            else if (pckg.ClearMode == 1)   Console.WriteLine(pckg.Message);
             Console.ForegroundColor = ConsoleColor.White;
         }
         return Task.CompletedTask;
@@ -138,19 +138,19 @@ public static class Logger
 
 internal struct LogPackage
 {
-    internal DateTime PostTime { get; set; }
+    internal DateTime   PostTime    { get; set; }
     /*
      * 0 = None
      * 1 = No Formatting
      * 2 = Empty Line
      * 3 = Clear Buffer
      */
-    internal int ClearMode { get; set; }
+    internal int        ClearMode   { get; set; }
     /*
      * 0 = Info
      * 1 = Warn
      * 2 = Error
      */
-    internal int Level { get; set; }
-    internal string Message { get; set; }
+    internal int        Level       { get; set; }
+    internal string     Message     { get; set; }
 }
