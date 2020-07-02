@@ -8,11 +8,11 @@ namespace LoggerTests
         static void Main(string[] args)
         {
             Logger.ClearBuffer();
-            Logger.Log(LogLevel.Info, 1);
-            Logger.Log(LogLevel.Warn, 455534456.CastToByteArray());
-            Logger.Log(LogLevel.Error, "Houston, we have a problem.");
+            Logger.LogInfo(1);
+            Logger.LogWarn(455534456.CastToByteArray());
+            Logger.LogError("Houston, we dont have a problem.");
             Logger.DivideBuffer();
-            Logger.Log(LogLevel.Debug, new List<string>());
+            Logger.LogDebug(new List<string>());
             Console.ReadKey();
         }
     }
