@@ -113,7 +113,8 @@ public static class Logger
     public static Task DivideBuffer()
     {
         string s = string.Empty;
-        for (int i = 0; i < (IsWebPlatform ? 100 : Console.BufferWidth) - 1; i++) s += "-";
+        if (IsWebPlatform) s = "----------------------------------------------------------------------------------------------------";
+        else for (int i = 0; i < Console.BufferWidth - 1; i++) s += "-";
         PackageQueue.Enqueue(new LogPackage
         {
             ClearMode = 1,
