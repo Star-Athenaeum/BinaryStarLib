@@ -106,7 +106,7 @@ public static class Logger
     public static Task NewLine(int lines = 1)
     {
         if (lines < 1) lines = 1;
-        for (int i = 1; i < lines; i++)
+        for (int i = 0; i < lines; i++)
         {
             PackageQueue.Enqueue(new LogPackage { ClearMode = 2 });
             if (IsWebPlatform) return PushLog();
