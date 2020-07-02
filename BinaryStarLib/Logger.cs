@@ -3,7 +3,10 @@ using System.Linq;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices;
+
+using BSL;
+
+using OperatingSystem = BSL.OS.OperatingSystem;
 
 public static class Logger
 {
@@ -13,11 +16,10 @@ public static class Logger
 
     static Logger()
     {
-        IsWebPlatform = RuntimeInformation.FrameworkDescription.Contains("Mono") && RuntimeInformation.FrameworkDescription.Contains("wasm");
+        IsWebPlatform = Runtime.IsMono && Runtime.IsWASM;
         if (!IsWebPlatform)
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))        Console.BufferWidth = Console.WindowWidth;
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))     { /* Is it supported yet? */ }
+            if (OperatingSystem.IsWindows)        Console.BufferWidth = Console.WindowWidth;
             LogThread = new Thread(() =>
             {
                 while (true) PushLog();
