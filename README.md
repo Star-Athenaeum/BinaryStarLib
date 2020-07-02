@@ -12,4 +12,4 @@ There is no set code style, everyone can contribute in their own prefered ways a
 #### Requirements
 - Windows 10 1909 or later
 - Visual Studio 2019 with ASP.NET and .NET
-- .NET 5 Preview SDK
+- .NET 5 SDK
