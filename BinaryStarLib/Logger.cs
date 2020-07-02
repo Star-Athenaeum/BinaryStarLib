@@ -103,11 +103,15 @@ public static class Logger
 #endif
     }
 
-    public static Task NewLine()
+    public static Task NewLine(int lines = 1)
     {
-        PackageQueue.Enqueue(new LogPackage { ClearMode = 2 });
-        if (IsWebPlatform) return PushLog();
-        else return Task.CompletedTask;
+        if (lines < 1) lines = 1;
+        for (int i = 1; i < lines; i++)
+        {
+            PackageQueue.Enqueue(new LogPackage { ClearMode = 2 });
+            if (IsWebPlatform) return PushLog();
+        }
+        return Task.CompletedTask;
     }
 
     public static Task DivideBuffer()
