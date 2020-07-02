@@ -13,8 +13,7 @@ namespace FileSystemTests
 
         static async Task MainAsync()
         {
-            await Logger.Log(LogLevel.Debug, 
-                await FileIOHelper.ReadText(FileSystemHelper.ApplicationDirectory.CombineToFile("TestingReadFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read));
+            await Logger.LogInfo(await FileIOHelper.ReadText(FileSystemHelper.ApplicationDirectory.CombineToFile("TestingReadFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read));
             Console.ReadKey();
         }
     }
