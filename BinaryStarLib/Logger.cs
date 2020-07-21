@@ -16,7 +16,7 @@ public static class Logger
 
     static Logger()
     {
-        IsWebPlatform = Runtime.IsMono && Runtime.IsWASM;
+        IsWebPlatform = Runtime.IsWASM;
         if (!IsWebPlatform)
         {
             if (OperatingSystem.IsWindows)        Console.BufferWidth = Console.WindowWidth;
