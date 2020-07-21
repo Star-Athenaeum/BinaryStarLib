@@ -11,6 +11,6 @@ namespace BSL
         }
 
         public static bool IsMono { get { return RuntimeInformation.FrameworkDescription.Contains("Mono"); } }
-        public static bool IsWASM { get { return RuntimeInformation.OSDescription.Contains("Wasm"); } }
+        public static bool IsWASM { get { return RuntimeInformation.OSDescription.Contains("Browser"); } }
     }
 }
