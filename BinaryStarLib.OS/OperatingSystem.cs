@@ -1,5 +1,4 @@
 ﻿using System;
-
 using BSL.OS.Hardware;
 
 namespace BSL.OS
@@ -8,7 +7,9 @@ namespace BSL.OS
     {
         static OperatingSystem()
         {
-
+            Type = Environment.OSVersion.Platform == PlatformID.Win32NT ? OSType.Windows :
+               Environment.OSVersion.Platform == PlatformID.Unix ? OSType.Linux :
+               Environment.OSVersion.Platform == PlatformID.MacOSX ? OSType.MacOSX : OSType.Windows;
         }
 
         public static OSType Type { get; private set; }
