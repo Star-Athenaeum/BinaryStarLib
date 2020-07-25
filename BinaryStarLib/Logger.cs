@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Concurrent;
-using System.Threading;
 using System.Threading.Tasks;
 
 using BSL;
@@ -10,8 +8,6 @@ using OperatingSystem = BSL.OS.OperatingSystem;
 
 public static class Logger
 {
-    private static ConcurrentQueue<LogPackage> PackageQueue { get; } = new ConcurrentQueue<LogPackage>();
-    private static Thread LogThread { get; }
     private static bool IsWebPlatform { get; }
 
     static Logger()
@@ -20,152 +16,128 @@ public static class Logger
         if (!IsWebPlatform)
         {
             if (OperatingSystem.IsWindows)        Console.BufferWidth = Console.WindowWidth;
-            LogThread = new Thread(() =>
-            {
-                while (true) PushLog();
-            })
-            { IsBackground = true };
-            LogThread.Start();
         }
-        ClearBuffer();
+        ClearBuffer().GetAwaiter().GetResult();
     }
 
     private static bool     InitialMessage =        false;
     private static string   PreviousMessage =       null;
     private static int      PreviousMessageCount =  0;
 
-    private static Task PushLog()
+    private static async Task PushLog(LogPackage pckg)
     {
-        if (PackageQueue.TryDequeue(out LogPackage pckg))
+        if (PreviousMessage == pckg.Message) PreviousMessageCount++;
+        else
         {
-            if (PreviousMessage == pckg.Message) PreviousMessageCount++;
-            else
-            {
-                if (PreviousMessage == null) InitialMessage = true;
-                PreviousMessage = !string.IsNullOrEmpty(pckg.Message) ? pckg.Message : string.Empty;
-                PreviousMessageCount = 0;
-            }
-
-            if      (pckg.Level == 1 && !IsWebPlatform)                                         Console.ForegroundColor = ConsoleColor.Yellow;
-            else if (pckg.Level == 2 && !IsWebPlatform)                                         Console.ForegroundColor = ConsoleColor.Red;
-            else if (!IsWebPlatform)                                                            Console.ForegroundColor = ConsoleColor.White;
-            if (pckg.ClearMode == 0)
-            {
-                if      (!InitialMessage && PreviousMessageCount == 0)                          Console.Write("\n");
-                if      (pckg.Level == 0 && PreviousMessageCount == 0)                          Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][INFO]:  " + pckg.Message);
-
-                else if (pckg.Level == 0)                                                       ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][INFO]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
-
-                else if (pckg.Level == 1 && PreviousMessageCount == 0)                          Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][WARN]:  " + pckg.Message);
-
-                else if (pckg.Level == 1)                                                       ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][WARN]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
-
-                else if (pckg.Level == 2 && PreviousMessageCount == 0)                          Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][ERROR]: " + pckg.Message);
-
-                else if (pckg.Level == 2)                                                       ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][ERROR]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
-
-                else if (pckg.Level == 3 && PreviousMessageCount == 0)                          Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][DEBUG]: " + pckg.Message);
-
-                else if (pckg.Level == 3)                                                       ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][DEBUG]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
-
-                else                                                                            Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff") 
-                                                                                                    + "][INFO]: " + pckg.Message);
-            }
-            else if (pckg.ClearMode == 3 && !IsWebPlatform)                                     Console.Clear();
-            else if (pckg.ClearMode == 2 && !IsWebPlatform)                                     Console.Write("\n");
-            else if (pckg.ClearMode == 1 && !IsWebPlatform)                                     Console.Write((!InitialMessage ? "\n" : string.Empty) + pckg.Message);
-            if (!IsWebPlatform) Console.ForegroundColor = ConsoleColor.White;
-            InitialMessage = false;
+            if (PreviousMessage == null) InitialMessage = true;
+            PreviousMessage = !string.IsNullOrEmpty(pckg.Message) ? pckg.Message : string.Empty;
+            PreviousMessageCount = 0;
         }
-        return Task.CompletedTask;
+
+        if (pckg.Level == 1 && !IsWebPlatform) Console.ForegroundColor = ConsoleColor.Yellow;
+        else if (pckg.Level == 2 && !IsWebPlatform) Console.ForegroundColor = ConsoleColor.Red;
+        else if (!IsWebPlatform) Console.ForegroundColor = ConsoleColor.White;
+        if (pckg.ClearMode == 0)
+        {
+            if (!InitialMessage && PreviousMessageCount == 0) Console.Write("\n");
+            if (pckg.Level == 0 && PreviousMessageCount == 0) Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                                                  + "][INFO]:  " + pckg.Message);
+
+            else if (pckg.Level == 0) await ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                          + "][INFO]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
+
+            else if (pckg.Level == 1 && PreviousMessageCount == 0) Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                                                       + "][WARN]:  " + pckg.Message);
+
+            else if (pckg.Level == 1) await ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                          + "][WARN]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
+
+            else if (pckg.Level == 2 && PreviousMessageCount == 0) Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                                                       + "][ERROR]: " + pckg.Message);
+
+            else if (pckg.Level == 2) await ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                          + "][ERROR]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
+
+            else if (pckg.Level == 3 && PreviousMessageCount == 0) Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                                                       + "][DEBUG]: " + pckg.Message);
+
+            else if (pckg.Level == 3) await ClearLine("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                                          + "][DEBUG]:  [" + PreviousMessageCount + " Duplicates] " + pckg.Message);
+
+            else Console.Write("[" + pckg.PostTime.ToString("yyyy/MM/dd HH:mm:ss.fff")
+                     + "][INFO]: " + pckg.Message);
+        }
+        else if (pckg.ClearMode == 3 && !IsWebPlatform) Console.Clear();
+        else if (pckg.ClearMode == 2 && !IsWebPlatform) Console.Write("\n");
+        else if (pckg.ClearMode == 1 && !IsWebPlatform) Console.Write((!InitialMessage ? "\n" : string.Empty) + pckg.Message);
+        if (!IsWebPlatform) Console.ForegroundColor = ConsoleColor.White;
+        InitialMessage = false;
     }
 
-    public static Task LogInfo(object msg)
+    public static async Task LogInfo(object msg)
     {
-        PackageQueue.Enqueue(new LogPackage
+        await PushLog(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 0,
             Message = msg != null ? msg.ToString() : "null"
         });
-        if (IsWebPlatform) return PushLog();
-        else return Task.CompletedTask;
     }
 
-    public static Task LogWarn(object msg)
+    public static async Task LogWarn(object msg)
     {
-        PackageQueue.Enqueue(new LogPackage
+        await PushLog(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 1,
             Message = msg != null ? msg.ToString() : "null"
         });
-        if (IsWebPlatform) return PushLog();
-        else return Task.CompletedTask;
     }
 
-    public static Task LogError(object msg)
+    public static async Task LogError(object msg)
     {
-        PackageQueue.Enqueue(new LogPackage
+        await PushLog(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 2,
             Message = msg != null ? msg.ToString() : "null"
         });
-        if (IsWebPlatform) return PushLog();
-        else return Task.CompletedTask;
     }
 
-    public static Task LogDebug(object msg)
+    public static async Task LogDebug(object msg)
     {
 #if DEBUG
-        PackageQueue.Enqueue(new LogPackage
+        await PushLog(new LogPackage
         {
             PostTime = DateTime.Now,
             Level = 3,
             Message = msg != null ? msg.ToString() : "null"
         });
-        if (IsWebPlatform) return PushLog();
-        else return Task.CompletedTask;
-#else
-        return Task.CompletedTask;
 #endif
     }
 
-    public static Task NewLine(int lines = 1)
+    public static async Task NewLine(int lines = 1)
     {
         if (lines < 1) lines = 1;
         for (int i = 0; i < lines; i++)
         {
-            PackageQueue.Enqueue(new LogPackage { ClearMode = 2 });
-            if (IsWebPlatform) return PushLog();
+            await PushLog(new LogPackage { ClearMode = 2 });
         }
-        return Task.CompletedTask;
     }
 
-    public static Task DivideBuffer()
+    public static async Task DivideBuffer()
     {
         string s = string.Empty;
         if (IsWebPlatform) s = "----------------------------------------------------------------------------------------------------";
         else for (int i = 0; i < Console.BufferWidth - 1; i++) s += "-";
-        PackageQueue.Enqueue(new LogPackage
+        await PushLog(new LogPackage
         {
             ClearMode = 1,
             Message = s
         });
-        if (IsWebPlatform) return PushLog();
-        else return Task.CompletedTask;
     }
 
-    public static Task ClearLine(string content = null)
+    public static async Task ClearLine(string content = null)
     {
         if (!IsWebPlatform)
         {
@@ -179,10 +151,9 @@ public static class Logger
         return Task.CompletedTask;
     }
 
-    public static Task ClearBuffer()
+    public static async Task ClearBuffer()
     {
-        if (!IsWebPlatform) PackageQueue.Enqueue(new LogPackage { ClearMode = 3 });
-        return Task.CompletedTask;
+        await PushLog(new LogPackage { ClearMode = 3 });
     }
 }
 
