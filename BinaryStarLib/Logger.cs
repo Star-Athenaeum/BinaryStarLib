@@ -20,9 +20,9 @@ public static class Logger
         ClearBuffer().GetAwaiter().GetResult();
     }
 
-    private static bool     InitialMessage =        false;
-    private static string   PreviousMessage =       null;
-    private static int      PreviousMessageCount =  0;
+    private static bool     InitialMessage;
+    private static string   PreviousMessage;
+    private static int      PreviousMessageCount;
 
     private static async Task PushLog(LogPackage pckg)
     {
@@ -137,7 +137,7 @@ public static class Logger
         });
     }
 
-    public static async Task ClearLine(string content = null)
+    public static Task ClearLine(string content = null)
     {
         if (!IsWebPlatform)
         {
