@@ -10,24 +10,6 @@ namespace BSL.FileSystem
     {
         private static ConcurrentDictionary<FileInfo, FileStream> ConcurrentOpenStreams { get; } = new ConcurrentDictionary<FileInfo, FileStream>();
 
-        public static async Task Write(FileInfo info, object data, FileMode mode = FileMode.Open, FileAccess access = FileAccess.ReadWrite, FileShare share = FileShare.ReadWrite)
-        {
-            if (info == null) throw new ArgumentNullException(nameof(info));
-            if (data == null) throw new ArgumentNullException(nameof(data));
-            byte[] bytes = await data.CastToByteArray();
-            if (ConcurrentOpenStreams.ContainsKey(info)) await ConcurrentOpenStreams[info].WriteAsync(bytes, 0, bytes.Length);
-            else using (FileStream fs = info.Open(mode, access, share)) await fs.WriteAsync(bytes);
-        }
-
-        public static async Task<T> Read<T>(FileInfo info, FileMode mode = FileMode.Open, FileAccess access = FileAccess.ReadWrite, FileShare share = FileShare.ReadWrite)
-        {
-            if (info == null) throw new ArgumentNullException(nameof(info));
-            byte[] data = new byte[info.Length];
-            if (ConcurrentOpenStreams.ContainsKey(info)) await ConcurrentOpenStreams[info].ReadAsync(data, 0, data.Length);
-            else using (FileStream fs = info.Open(mode, access, share)) await fs.ReadAsync(data, 0, data.Length);
-            return await data.CastFromByteArray<T>();
-        }
-
         public static async Task WriteText(FileInfo info, object data, Encoding encoding, FileMode mode = FileMode.Open, FileAccess access = FileAccess.ReadWrite, FileShare share = FileShare.ReadWrite)
         {
             if (info == null) throw new ArgumentNullException(nameof(info));
