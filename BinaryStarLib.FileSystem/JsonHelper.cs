@@ -20,5 +20,20 @@ namespace BSL.FileSystem
 			if (info == null) throw new ArgumentNullException(nameof(info));
 			return JsonSerializer.DeserializeAsync<T>(await FileIOHelper.OpenStream(info)).Result;
 		}
+
+		public static async Task<string> Serialize<T>(T data)
+		{
+			using (MemoryStream stream = new MemoryStream())
+			{
+				await JsonSerializer.SerializeAsync(stream, data, data.GetType());
+				stream.Position = 0;
+				using (StreamReader reader = new StreamReader(stream)) return await reader.ReadToEndAsync();
+			}
+		}
+
+		public static async Task<T> Deserialize<T>(string jsonString)
+		{
+			using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString))) return await JsonSerializer.DeserializeAsync<T>(stream);
+		}
 	}
 }
