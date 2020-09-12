@@ -12,7 +12,6 @@ namespace LoggerTests
             Logger.LogDebug("SYNC LOGGER");
             Logger.DivideBuffer();
             Logger.LogInfo(1);
-            Logger.LogWarn(455534456.CastToByteArray());
             Logger.LogError("Houston, we dont have a problem.");
             Logger.LogWarn("One does not simply group.");
             Logger.LogWarn("One does not simply group.");
@@ -30,7 +29,6 @@ namespace LoggerTests
             await Logger.LogDebug("ASYNC LOGGER");
             await Logger.DivideBuffer();
             await Logger.LogInfo(1);
-            await Logger.LogWarn(455534456.CastToByteArray());
             await Logger.LogError("Houston, we dont have a problem.");
             await Logger.LogWarn("One does not simply group.");
             await Logger.LogWarn("One does not simply group.");
