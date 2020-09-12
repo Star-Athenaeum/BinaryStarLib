@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.FileSystem", "BinaryStarLib.FileSystem\BinaryStarLib.FileSystem.csproj", "{47B74EA5-EBA4-4F46-A593-C6B1C51596E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Unity", "BinaryStarLib.Unity\BinaryStarLib.Unity.csproj", "{7508C72A-58F1-4B35-8585-3829D29DCE96}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Blazor", "BinaryStarLib.Blazor\BinaryStarLib.Blazor.csproj", "{8367ECB2-CC74-4672-B0D3-2938D7FE7CB7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib.Security", "BinaryStarLib.Security\BinaryStarLib.Security.csproj", "{19140020-6E20-433E-9F18-5941B3C287CA}"
@@ -55,13 +53,6 @@ Global
 		{47B74EA5-EBA4-4F46-A593-C6B1C51596E0}.Release|Any CPU.ActiveCfg = Release|x64
 		{47B74EA5-EBA4-4F46-A593-C6B1C51596E0}.Release|x64.ActiveCfg = Release|x64
 		{47B74EA5-EBA4-4F46-A593-C6B1C51596E0}.Release|x64.Build.0 = Release|x64
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Debug|x64.ActiveCfg = Debug|x64
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Debug|x64.Build.0 = Debug|x64
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Release|Any CPU.ActiveCfg = Release|x64
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Release|x64.ActiveCfg = Release|x64
-		{7508C72A-58F1-4B35-8585-3829D29DCE96}.Release|x64.Build.0 = Release|x64
 		{8367ECB2-CC74-4672-B0D3-2938D7FE7CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8367ECB2-CC74-4672-B0D3-2938D7FE7CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8367ECB2-CC74-4672-B0D3-2938D7FE7CB7}.Debug|x64.ActiveCfg = Debug|x64
