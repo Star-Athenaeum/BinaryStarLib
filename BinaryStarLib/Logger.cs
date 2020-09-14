@@ -106,7 +106,14 @@ public static class Logger
 
     public static async Task LogDebug(object msg)
     {
-#if DEBUG
+#if !DEBUG
+        await PushLog(new LogPackage
+        {
+            PostTime = DateTime.Now,
+            Level = 3,
+            Message = "Debug logs should not be called in Release mode!"
+        });
+#else
         await PushLog(new LogPackage
         {
             PostTime = DateTime.Now,
