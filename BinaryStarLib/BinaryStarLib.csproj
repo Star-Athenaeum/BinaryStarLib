@@ -3,7 +3,7 @@
 	<PropertyGroup>
 	<TargetFramework>net5.0</TargetFramework>
 	<Platforms>x64;AnyCPU</Platforms>
-	<AssemblyName>BinaryStarLib</AssemblyName>
+	<AssemblyName>BSL.NET</AssemblyName>
 	<RootNamespace>BSL</RootNamespace>
 	</PropertyGroup>
 
@@ -16,8 +16,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\BinaryStarLib.Extensions\BinaryStarLib.Extensions.csproj" />
-	  <ProjectReference Include="..\BinaryStarLib.OS\BinaryStarLib.OS.csproj" />
+	  <Folder Include="Blazor\" />
+	  <Folder Include="Math\" />
+	  <Folder Include="Media\" />
+	  <Folder Include="Network\" />
+	  <Folder Include="Security\" />
+	  <Folder Include="Performance\" />
 	</ItemGroup>
 
 </Project>

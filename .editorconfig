@@ -11,3 +11,12 @@ dotnet_diagnostic.CA1062.severity = silent
 
 # CA1303: Do not pass literals as localized parameters
 dotnet_diagnostic.CA1303.severity = silent
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = silent
+
+# CA1416: Validate platform compatibility
+dotnet_diagnostic.CA1416.severity = silent
+
+# CA1050: Declare types in namespaces
+dotnet_diagnostic.CA1050.severity = silent
