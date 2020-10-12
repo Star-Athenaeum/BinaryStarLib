@@ -13,12 +13,16 @@ public static class Logger
 
     static Logger()
     {
-        IsWebPlatform = Runtime.IsWASM;
-        if (!IsWebPlatform)
+        try
         {
-            if (OperatingSystem.IsWindows)        Console.BufferWidth = Console.WindowWidth;
+            IsWebPlatform = Runtime.IsWASM;
+            if (!IsWebPlatform)
+            {
+                if (OperatingSystem.IsWindows) Console.BufferWidth = Console.WindowWidth;
+            }
+            ClearBuffer().GetAwaiter().GetResult();
         }
-        ClearBuffer().GetAwaiter().GetResult();
+        catch (IOException) { IsBufferPresent = false; }
     }
 
     private static bool     IsBufferPresent = true;
