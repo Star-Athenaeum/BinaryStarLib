@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{151E9BA3-E997-46E2-A91B-45095CDDFA5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStarLib", "BinaryStarLib\BinaryStarLib.csproj", "{BEFD3F36-9845-4A6F-B88B-FB360ABE9791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stryxus.Lib", "Stryxus.Lib\Stryxus.Lib.csproj", "{BEFD3F36-9845-4A6F-B88B-FB360ABE9791}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArgumentHandlerTests", "Tests\ArgumentHandlerTests\ArgumentHandlerTests.csproj", "{CC577602-CEF2-41A0-AA89-1E99BE7C17FF}"
 EndProject

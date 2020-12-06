@@ -1,8 +1,8 @@
 ﻿using System;
 
-using BSL.OS.Abstractions;
+using Stryxus.Lib.OS.Abstractions;
 
-namespace BSL.OS.Hardware
+namespace Stryxus.Lib.OS.Hardware
 {
     public class GraphicalProcessingUnit
     {

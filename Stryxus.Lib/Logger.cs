@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-using BSL;
+using Stryxus.Lib;
 
-using OperatingSystem = BSL.OS.OperatingSystem;
+using OperatingSystem = Stryxus.Lib.OS.OperatingSystem;
 
 public static class Logger
 {

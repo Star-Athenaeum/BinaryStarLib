@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BSL.OS.Abstractions
+namespace Stryxus.Lib.OS.Abstractions
 {
     public class Vulkan
     {

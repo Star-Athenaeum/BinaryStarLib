@@ -2,8 +2,8 @@
 using System.IO;
 using System.Threading.Tasks;
 
-using BSL;
-using BSL.FileSystem;
+using Stryxus.Lib;
+using Stryxus.Lib.FileSystem;
 
 namespace FileSystemTests
 {

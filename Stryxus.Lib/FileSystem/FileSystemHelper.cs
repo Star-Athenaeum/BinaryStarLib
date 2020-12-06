@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace BSL.FileSystem
+namespace Stryxus.Lib.FileSystem
 {
 	public static class FileSystemHelper
 	{

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BinaryStarLib\BinaryStarLib.csproj" />
+    <ProjectReference Include="..\..\Stryxus.Lib\Stryxus.Lib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

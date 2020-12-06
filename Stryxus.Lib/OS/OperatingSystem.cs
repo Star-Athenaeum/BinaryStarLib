@@ -1,7 +1,7 @@
 ﻿using System;
-using BSL.OS.Hardware;
+using Stryxus.Lib.OS.Hardware;
 
-namespace BSL.OS
+namespace Stryxus.Lib.OS
 {
     public static class OperatingSystem
     {

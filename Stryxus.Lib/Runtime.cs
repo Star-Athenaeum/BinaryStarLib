@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace BSL
+namespace Stryxus.Lib
 {
     public static class Runtime
     {

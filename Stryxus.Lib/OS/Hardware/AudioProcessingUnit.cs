@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BSL.OS.Hardware
+namespace Stryxus.Lib.OS.Hardware
 {
     public class AudioProcessingUnit
     {

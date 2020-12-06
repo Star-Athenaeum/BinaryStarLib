@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+	<TargetFramework>net5.0</TargetFramework>
+	<Platforms>x64;AnyCPU</Platforms>
+	<AssemblyName>Stryxus.Lib</AssemblyName>
+	<RootNamespace>Stryxus.Lib</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <DebugType>none</DebugType>
+	  <DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>none</DebugType>
+	  <DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Blazor\**" />
+	  <Compile Remove="Math\**" />
+	  <Compile Remove="Media\**" />
+	  <Compile Remove="Network\**" />
+	  <Compile Remove="Performance\**" />
+	  <Compile Remove="Security\**" />
+	  <EmbeddedResource Remove="Blazor\**" />
+	  <EmbeddedResource Remove="Math\**" />
+	  <EmbeddedResource Remove="Media\**" />
+	  <EmbeddedResource Remove="Network\**" />
+	  <EmbeddedResource Remove="Performance\**" />
+	  <EmbeddedResource Remove="Security\**" />
+	  <None Remove="Blazor\**" />
+	  <None Remove="Math\**" />
+	  <None Remove="Media\**" />
+	  <None Remove="Network\**" />
+	  <None Remove="Performance\**" />
+	  <None Remove="Security\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	<None Include="..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	</ItemGroup>
+
+</Project>

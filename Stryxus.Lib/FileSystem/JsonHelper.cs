@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace BSL.FileSystem
+namespace Stryxus.Lib.FileSystem
 {
 	public static class JsonHelper
 	{

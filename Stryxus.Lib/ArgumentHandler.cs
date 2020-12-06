@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BSL
+namespace Stryxus.Lib
 {
     public static class ArgumentHandler
     {

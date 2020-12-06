@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
-namespace BSL.FileSystem
+namespace Stryxus.Lib.FileSystem
 {
     public static class FileIOHelper
     {

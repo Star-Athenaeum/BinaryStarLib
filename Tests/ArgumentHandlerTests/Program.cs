@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BSL;
+
+using Stryxus.Lib;
 
 namespace ArgumentHandlerTests
 {

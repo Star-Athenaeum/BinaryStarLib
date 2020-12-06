@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BSL.OS
+namespace Stryxus.Lib.OS
 {
     public static class CommonInformationModel
     {

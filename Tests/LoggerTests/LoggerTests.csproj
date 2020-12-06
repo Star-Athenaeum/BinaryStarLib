@@ -4,10 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
+    <StartupObject>LoggerTests.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BinaryStarLib\BinaryStarLib.csproj" />
+    <ProjectReference Include="..\..\Stryxus.Lib\Stryxus.Lib.csproj" />
   </ItemGroup>
 
 </Project>
