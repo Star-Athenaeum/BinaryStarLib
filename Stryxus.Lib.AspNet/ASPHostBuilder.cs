@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,8 +35,9 @@ namespace Stryxus.Lib.AspNet
                     options.Providers.Add<GzipCompressionProvider>();
                     options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
                 });
-                services.Configure<BrotliCompressionProviderOptions>(options => options.Level = (CompressionLevel)4);
                 services.AddRazorPages();
+                services.Configure<BrotliCompressionProviderOptions>(options => options.Level = (CompressionLevel)4);
+                services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
                 if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) services.AddServerSideBlazor();
             });
 
