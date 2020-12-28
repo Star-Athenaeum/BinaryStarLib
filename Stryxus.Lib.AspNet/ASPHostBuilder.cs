@@ -64,10 +64,14 @@ namespace Stryxus.Lib.AspNet
                 {
                     if (type == ServerHostType.Static)
                     {
+                        endpoints.MapFallbackToPage("/_Host");
+                    }
+                    else if (type == ServerHostType.PreRender)
+                    {
                         endpoints.MapBlazorHub();
                         endpoints.MapFallbackToPage("/_Host");
                     }
-                    else if (type == ServerHostType.WebAssembly)
+                    else if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
                     {
                         endpoints.MapRazorPages();
                         endpoints.MapControllers();
