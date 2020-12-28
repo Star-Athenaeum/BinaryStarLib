@@ -27,6 +27,8 @@ namespace Stryxus.Lib.AspNet
         public static async Task RunServerHost(ServerHostType type) => await CreateServerHost(type).Build().RunAsync();
         public static IHostBuilder CreateServerHost(ServerHostType type) => Host.CreateDefaultBuilder().ConfigureWebHostDefaults((webBuilder) =>
         {
+            webBuilder.UseStaticWebAssets();
+
             webBuilder.ConfigureServices((services) =>
             {
                 services.AddResponseCompression(options =>
