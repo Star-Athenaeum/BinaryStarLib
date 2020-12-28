@@ -23,7 +23,6 @@ namespace Stryxus.Lib.AspNet
             WebAssemblyCommunable
         }
 
-        public static async Task RunServerHost(ServerHostType type) => await CreateServerHost(type).Build().RunAsync();
         public static IHostBuilder CreateServerHost(ServerHostType type) => Host.CreateDefaultBuilder().ConfigureWebHostDefaults((webBuilder) =>
         {
             webBuilder.ConfigureServices((services) =>
@@ -81,7 +80,6 @@ namespace Stryxus.Lib.AspNet
             });
         });
 
-        public static async Task RunClientHost<T>() where T : IComponent => await CreateClientHost<T>().Build().RunAsync();
         public static WebAssemblyHostBuilder CreateClientHost<T>() where T : IComponent
         {
             WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault();
