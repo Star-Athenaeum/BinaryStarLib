@@ -68,7 +68,7 @@ namespace Stryxus.Lib.AspNet
                 {
                     if (type == ServerHostType.Static)
                     {
-                        endpoints.MapFallbackToPage("/_Host");
+                        //
                     }
                     else if (type == ServerHostType.PreRender)
                     {
