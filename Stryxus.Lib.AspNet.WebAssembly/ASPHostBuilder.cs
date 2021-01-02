@@ -9,9 +9,9 @@ namespace Stryxus.Lib.AspNet.WebAssembly
     public static class ASPHostBuilder
     {
         public static async Task RunClientHost<T>() where T : IComponent => await CreateClientHost<T>().Build().RunAsync();
-        public static WebAssemblyHostBuilder CreateClientHost<T>() where T : IComponent
+        public static WebAssemblyHostBuilder CreateClientHost<T>(string[] args) where T : IComponent
         {
-            WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault();
+            WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<T>("#app");
             return builder;
         }
