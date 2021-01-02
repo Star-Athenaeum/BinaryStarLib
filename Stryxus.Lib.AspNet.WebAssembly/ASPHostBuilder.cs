@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Stryxus.Lib.AspNet.WebAssembly
 {
@@ -13,6 +15,7 @@ namespace Stryxus.Lib.AspNet.WebAssembly
         {
             WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<T>("#app");
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             return builder;
         }
     }
