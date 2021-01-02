@@ -35,8 +35,12 @@ namespace Stryxus.Lib.AspNet
                 });
                 services.AddRazorPages();
                 services.Configure<BrotliCompressionProviderOptions>(options => options.Level = (CompressionLevel)4);
-                if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) services.AddServerSideBlazor();
-                else services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
+                if (type == ServerHostType.PreRender)
+                {
+                    services.AddServerSideBlazor();
+                    services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
+                }
+                else if (type == ServerHostType.Static) services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
             });
 
             webBuilder.Configure((app) =>
