@@ -25,7 +25,7 @@ namespace Stryxus.Lib.AspNet
         public static async Task RunServerHost(ServerHostType type) => await CreateServerHost(type).Build().RunAsync();
         public static IHostBuilder CreateServerHost(ServerHostType type) => Host.CreateDefaultBuilder().ConfigureWebHostDefaults((webBuilder) =>
         {
-            webBuilder.UseStaticWebAssets();
+            if (type != ServerHostType.WebAssembly && type != ServerHostType.WebAssemblyCommunable) webBuilder.UseStaticWebAssets();
 
             webBuilder.ConfigureServices((services) =>
             {
@@ -37,8 +37,8 @@ namespace Stryxus.Lib.AspNet
                 });
                 services.AddRazorPages();
                 services.Configure<BrotliCompressionProviderOptions>(options => options.Level = (CompressionLevel)4);
-                services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
                 if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) services.AddServerSideBlazor();
+                else services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
             });
 
             webBuilder.Configure((app) =>
