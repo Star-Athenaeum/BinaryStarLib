@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace Stryxus.Lib.AspNet
+namespace Stryxus.Lib.AspNet.WebAssembly
 {
     public static class ASPHostBuilder
     {
