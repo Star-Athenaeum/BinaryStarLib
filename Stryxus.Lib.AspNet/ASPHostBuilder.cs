@@ -64,7 +64,7 @@ namespace Stryxus.Lib.AspNet
                 app.UseRouting();
                 app.UseEndpoints(endpoints =>
                 {
-                    if (type == ServerHostType.Static)
+                    if (type == ServerHostType.Static || type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
                     {
                         endpoints.MapFallbackToFile("index.html");
                     }
@@ -72,12 +72,6 @@ namespace Stryxus.Lib.AspNet
                     {
                         endpoints.MapBlazorHub();
                         endpoints.MapFallbackToPage("/_Host");
-                    }
-                    else if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
-                    {
-                        endpoints.MapRazorPages();
-                        endpoints.MapControllers();
-                        endpoints.MapFallbackToFile("index.html");
                     }
                 });
             });
