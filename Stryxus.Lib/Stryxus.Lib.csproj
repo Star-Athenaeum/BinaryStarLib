@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5</TargetFramework>
-	<Platforms>x64;AnyCPU</Platforms>
-	<AssemblyName>Stryxus.Lib</AssemblyName>
-	<RootNamespace>Stryxus.Lib</RootNamespace>
+		<TargetFramework>net5.0</TargetFramework>
+		<Platforms>x64;AnyCPU</Platforms>
+		<AssemblyName>Stryxus.Lib</AssemblyName>
+		<RootNamespace>Stryxus.Lib</RootNamespace>
 		<LangVersion>9.0</LangVersion>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 	</PropertyGroup>
