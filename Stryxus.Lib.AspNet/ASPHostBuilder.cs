@@ -53,7 +53,6 @@ namespace Stryxus.Lib.AspNet
                 }
                 else
                 {
-                    if (type != ServerHostType.Static) app.UseExceptionHandler("/Error");
                     app.UseHsts();
                 }
 
