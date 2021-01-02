@@ -12,7 +12,7 @@ namespace Stryxus.Lib.AspNet.WebAssembly
         public static WebAssemblyHostBuilder CreateClientHost<T>(string[] args) where T : IComponent
         {
             WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<T>("app");
+            builder.RootComponents.Add<T>("#app");
             return builder;
         }
     }
