@@ -2,16 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
-		<Platforms>x64;AnyCPU</Platforms>
+		<Platforms>AnyCPU</Platforms>
 		<AssemblyName>Stryxus.Lib</AssemblyName>
 		<RootNamespace>Stryxus.Lib</RootNamespace>
 		<LangVersion>9.0</LangVersion>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<DebugType>none</DebugType>
-		<DebugSymbols>false</DebugSymbols>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
