@@ -22,8 +22,8 @@ namespace Stryxus.Lib.AspNet
             WebAssemblyCommunable
         }
 
-        public static async Task RunServerHost(ServerHostType type, string[] args) => await CreateServerHost(type, args).Build().RunAsync();
-        public static IHostBuilder CreateServerHost(ServerHostType type, string[] args) => Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults((webBuilder) =>
+        public static async Task RunServerHost(IHostBuilder builder, ServerHostType type) => await CreateServerHost(builder, type).Build().RunAsync();
+        public static IHostBuilder CreateServerHost(IHostBuilder builder, ServerHostType type) => builder.ConfigureWebHostDefaults((webBuilder) =>
         {
             webBuilder.ConfigureServices((services) =>
             {
@@ -65,7 +65,7 @@ namespace Stryxus.Lib.AspNet
                 app.UseRouting();
                 app.UseEndpoints(endpoints =>
                 {
-                    if (type == ServerHostType.Static || type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
+                    if (type == ServerHostType.Static)
                     {
                         endpoints.MapFallbackToFile("index.html");
                     }
@@ -73,6 +73,10 @@ namespace Stryxus.Lib.AspNet
                     {
                         endpoints.MapBlazorHub();
                         endpoints.MapFallbackToPage("/_Host");
+                    }
+                    else if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
+                    {
+                        endpoints.MapFallbackToFile("index.html");
                     }
                 });
             });
