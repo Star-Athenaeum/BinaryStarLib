@@ -18,8 +18,8 @@ namespace Stryxus.Lib.AspNet
         {
             Static,
             PreRender,
-            WebAssembly,
-            WebAssemblyCommunable
+            //WebAssembly,
+            //WebAssemblyCommunable
         }
 
         public static async Task RunServerHost(IHostBuilder builder, ServerHostType type) => await CreateServerHost(builder, type).Build().RunAsync();
@@ -51,7 +51,7 @@ namespace Stryxus.Lib.AspNet
                 if (ASPServices.IsDevelopmentMode)
                 {
                     app.UseDeveloperExceptionPage();
-                    if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) app.UseWebAssemblyDebugging();
+                    //if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) app.UseWebAssemblyDebugging();
                 }
                 else
                 {
@@ -60,7 +60,7 @@ namespace Stryxus.Lib.AspNet
 
                 app.UseResponseCompression();
                 app.UseHttpsRedirection();
-                if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) app.UseBlazorFrameworkFiles();
+                //if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable) app.UseBlazorFrameworkFiles();
                 app.UseStaticFiles();
                 app.UseRouting();
                 app.UseEndpoints(endpoints =>
@@ -74,10 +74,10 @@ namespace Stryxus.Lib.AspNet
                         endpoints.MapBlazorHub();
                         endpoints.MapFallbackToPage("/_Host");
                     }
-                    else if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
+                    /*else if (type == ServerHostType.WebAssembly || type == ServerHostType.WebAssemblyCommunable)
                     {
                         endpoints.MapFallbackToFile("index.html");
-                    }
+                    }*/
                 });
             });
         });
