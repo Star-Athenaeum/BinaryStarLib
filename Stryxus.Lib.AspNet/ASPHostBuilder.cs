@@ -34,7 +34,6 @@ namespace Stryxus.Lib.AspNet
                     options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
                 });
                 services.AddRazorPages();
-                services.Configure<BrotliCompressionProviderOptions>(options => options.Level = (CompressionLevel)4);
                 if (type == ServerHostType.PreRender)
                 {
                     services.AddServerSideBlazor();
