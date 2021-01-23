@@ -10,4 +10,38 @@
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sl_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sl_time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sl_net.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sl_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sl_json.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sl_io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sl_net.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sl_json.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sl_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sl_time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

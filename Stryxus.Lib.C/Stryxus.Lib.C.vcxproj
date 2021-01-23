@@ -10,6 +10,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sl_io.h" />
+    <ClInclude Include="sl_json.h" />
+    <ClInclude Include="sl_net.h" />
+    <ClInclude Include="sl_string.h" />
+    <ClInclude Include="sl_time.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sl_io.c" />
+    <ClCompile Include="sl_json.c" />
+    <ClCompile Include="sl_net.c" />
+    <ClCompile Include="sl_string.c" />
+    <ClCompile Include="sl_time.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
