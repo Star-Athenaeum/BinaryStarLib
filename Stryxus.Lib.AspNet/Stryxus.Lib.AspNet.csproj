@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Platforms>AnyCPU</Platforms>
+    <Platforms>x64</Platforms>
     <AssemblyName>Stryxus.Lib.AspNet</AssemblyName>
     <RootNamespace>Stryxus.Lib.AspNet</RootNamespace>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
