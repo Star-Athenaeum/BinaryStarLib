@@ -1,15 +1,17 @@
 #include "pch.h"
 #include "sl_io.h"
 
-bool file_exists(const char* file_path[])
+bool file_exists(const char file_path[])
 {
 	struct stat buffer;
 	return stat(file_path, &buffer) == 0;
 }
 
-void create_file(const char* file_path[])
+void create_file(const char file_path[])
 {
-	fclose(fopen(file_path, "r"));
+	FILE *f;
+	fopen_s(&f, file_path, "r");
+	if (f != NULL) fclose(f);
 }
 
 //
@@ -168,7 +170,7 @@ void convert_data_magnitude_to_bits(double value, BYTE_MAGNITUDE from_magnitude,
 	}
 }
 
-void convert_data_magnitude_to_bytes(unsigned long long value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
+void convert_data_magnitude_to_bytes(double value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
 	if (from_magnitude == BIT)
 	{
@@ -614,7 +616,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 		else if (to_magnitude == ZETTA_BIT)		return (value / bytes_in_zetta) * base_byte;
 		else if (to_magnitude == YOTTA_BIT)		return (value / bytes_in_yotta) * base_byte;
 	}
-	else return 0L;
+	return 0L;
 }
 
 double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
@@ -727,7 +729,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 		else if (to_magnitude == ZETTA_BYTE)	return (value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == YOTTA_BYTE)	return value / base_byte;
 	}
-	else return 0L;
+	return 0L;
 }
 
 double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
@@ -840,7 +842,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 		else if (to_magnitude == ZETTA_BIT)		return value * bits_in_yotta;
 		else if (to_magnitude == YOTTA_BIT)		value = value;
 	}
-	else return 0L;
+	return 0L;
 }
 
 double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
@@ -953,7 +955,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 		else if (to_magnitude == ZETTA_BYTE)	return value * bytes_in_kilo;
 		else if (to_magnitude == YOTTA_BYTE)	value = value;
 	}
-	else return 0L;
+	return 0L;
 }
 
 //

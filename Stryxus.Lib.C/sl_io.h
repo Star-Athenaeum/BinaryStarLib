@@ -1,7 +1,7 @@
 #pragma once
 
-bool file_exists(const char* file_path[]);
-void create_file(const char* file_path[]);
+bool file_exists(const char file_path[]);
+void create_file(const char file_path[]);
 
 //
 
@@ -33,10 +33,10 @@ typedef enum
 
 //
 
-void convert_data_magnitude_to_bits(unsigned long value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude);
-void convert_data_magnitude_to_bytes(unsigned long value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude);
-void convert_data_magnitude_in_bits(unsigned long value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude);
-void convert_data_magnitude_in_bytes(unsigned long value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude);
+void convert_data_magnitude_to_bits(double value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude);
+void convert_data_magnitude_to_bytes(double value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude);
+void convert_data_magnitude_in_bits(double value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude);
+void convert_data_magnitude_in_bytes(double value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude);
 
 double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude);
 double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude);
