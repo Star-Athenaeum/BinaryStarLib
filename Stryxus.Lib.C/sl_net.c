@@ -5,7 +5,7 @@
 
 size_t write_mem(void* ptr, size_t size, size_t nmemb, void* stream)
 {
-    strncat(stream, (char*)ptr, size * nmemb);
+    strncat_s(stream, size, (char*)ptr, size * nmemb);
     return size * nmemb;
 }
 
