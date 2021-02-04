@@ -1,13 +1,13 @@
 #include "pch.h"
 #include "sl_io.h"
 
-bool file_exists(const char file_path[])
+bool file_exists(const char* file_path)
 {
 	struct stat buffer;
 	return stat(file_path, &buffer) == 0;
 }
 
-void create_file(const char file_path[])
+void create_file(const char* file_path)
 {
 	FILE *f;
 	fopen_s(&f, file_path, "r");
@@ -58,7 +58,7 @@ unsigned long	bytes_in_yotta;
 #define			bytes_in_zetta	(bytes_in_zetta =	bytes_in_exa	* 1000u)
 #define			bytes_in_yotta	(bytes_in_yotta =	bytes_in_zetta	* 1000u)
 
-void convert_data_magnitude_to_bits(double *value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
+void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
 {
 	if (from_magnitude == BYTE)
 	{
@@ -170,7 +170,7 @@ void convert_data_magnitude_to_bits(double *value, BYTE_MAGNITUDE from_magnitude
 	}
 }
 
-void convert_data_magnitude_to_bytes(double *value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
+void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
 	if (from_magnitude == BIT)
 	{
@@ -282,7 +282,7 @@ void convert_data_magnitude_to_bytes(double *value, BIT_MAGNITUDE from_magnitude
 	}
 }
 
-void convert_data_magnitude_in_bits(double *value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
+void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
 {
 	if (from_magnitude == BIT)
 	{
@@ -394,7 +394,7 @@ void convert_data_magnitude_in_bits(double *value, BIT_MAGNITUDE from_magnitude,
 	}
 }
 
-void convert_data_magnitude_in_bytes(double *value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
+void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
 	if (from_magnitude == BYTE)
 	{
