@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "sl_json.h"
 
-bool json_entry_exists(cJSON *json, char *key)
+bool json_entry_exists(const cJSON* json, const char* key)
 {
     cJSON* el = NULL;
     char* it_key = NULL;
