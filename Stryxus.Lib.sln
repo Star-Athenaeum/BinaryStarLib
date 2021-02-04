@@ -28,6 +28,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stryxus.Lib.CPP", "Stryxus.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stryxus.Lib.C.Shared", "Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems", "{822B8655-3B59-4C1F-85C5-2E2BBB90E4AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{6FF9E9EC-601E-43B2-AE44-B2606F05B192}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{A4B285A1-4DE5-4C37-B85A-D5C8BBD1870A}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		CMakeLists.txt = CMakeLists.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Stryxus.Lib.AspNet.Shared\Stryxus.Lib.AspNet.Shared.projitems*{1c502d6c-2f6e-4903-9f84-0969ee67fcc8}*SharedItemsImports = 5
@@ -74,6 +87,8 @@ Global
 		{DF68092C-17AF-4814-95D2-4B36F5271912} = {B05D33AA-F962-4795-A970-FD01A0547B08}
 		{4672856C-CBF5-4EF5-86F1-87EA92E50ABC} = {B05D33AA-F962-4795-A970-FD01A0547B08}
 		{822B8655-3B59-4C1F-85C5-2E2BBB90E4AB} = {B05D33AA-F962-4795-A970-FD01A0547B08}
+		{6FF9E9EC-601E-43B2-AE44-B2606F05B192} = {6D133ED6-3BF1-4438-BE16-A69D4EA0FB6C}
+		{A4B285A1-4DE5-4C37-B85A-D5C8BBD1870A} = {6D133ED6-3BF1-4438-BE16-A69D4EA0FB6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B39B28A-F246-46E8-81CE-D03C613508C8}
