@@ -9,9 +9,8 @@ size_t write_mem(void* ptr, size_t size, size_t nmemb, void* stream)
     return size * nmemb;
 }
 
-char* download(char* url)
+bool download(char* url, char* data)
 {
-    char* buffer;{};
     CURL* curl = curl_easy_init();
     if (curl)
     {
@@ -23,14 +22,14 @@ char* download(char* url)
         curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING, "");
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_mem);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &data);
 
         CURLcode res = curl_easy_perform(curl);
         //if (res) Logger::log_error(curl_easy_strerror(res));
         curl_easy_cleanup(curl);
-        return buffer;
+        return true;
     }
-    else return buffer;
+    else return false;
 }
 
 bool download_file(char* url)
