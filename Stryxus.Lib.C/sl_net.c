@@ -26,7 +26,7 @@ char* download(char* url)
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
 
         CURLcode res = curl_easy_perform(curl);
-        if (res) Logger::log_error(curl_easy_strerror(res));
+        //if (res) Logger::log_error(curl_easy_strerror(res));
         curl_easy_cleanup(curl);
         return buffer;
     }
