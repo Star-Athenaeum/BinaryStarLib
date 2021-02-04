@@ -11,7 +11,7 @@ size_t write_mem(void* ptr, size_t size, size_t nmemb, void* stream)
 
 char* download(char* url)
 {
-    char* buffer;
+    char* buffer;{};
     CURL* curl = curl_easy_init();
     if (curl)
     {
