@@ -1,5 +1,5 @@
 #pragma once
 
-#include <nlohmann/>
+#include <cJSON.h>
 
-bool json_entry_exists(nlohamm json, string key);
+bool json_entry_exists(cJSON* json, char* key[])
