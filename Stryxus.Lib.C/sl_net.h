@@ -1,6 +1,6 @@
 #pragma once
 
-char* download(char* url);
+bool download(char* url, char* data);
 bool download_file(char* url);
 
 //
