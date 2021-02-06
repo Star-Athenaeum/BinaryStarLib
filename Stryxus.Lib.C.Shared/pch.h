@@ -28,7 +28,7 @@
 //#include <stdnoreturn.h>		// C11 - For specifying non - returning functions
 #include <string.h>				// C   - Defines string - handling functions
 #include <tgmath.h>				// C99 - Defines type - generic mathematical functions.
-//#include <threads.h>			// C11 - Defines functions for managing multiple threads, mutexesand condition variables
+//#include <threads.h>			// C11 - Defines functions for managing multiple threads, mutexes and condition variables
 #include <time.h>				// C   - Defines date - and time - handling functions
 #include <uchar.h>				// C11 - Types and functions for manipulating Unicode characters
 #include <wchar.h>				// NA1 - Defines wide - string - handling functions
