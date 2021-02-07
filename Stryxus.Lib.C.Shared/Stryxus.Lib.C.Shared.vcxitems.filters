@@ -24,7 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\stdc.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_time.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\stdc.c">
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

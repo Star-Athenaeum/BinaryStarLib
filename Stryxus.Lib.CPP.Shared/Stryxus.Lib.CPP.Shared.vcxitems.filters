@@ -9,13 +9,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Projects\Stryxus.Lib\Stryxus.Lib.CPP.Shared\stdcpp.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdcpp.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\Projects\Stryxus.Lib\Stryxus.Lib.CPP.Shared\stdcpp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdcpp.cpp" />
   </ItemGroup>
 </Project>
