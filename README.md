@@ -15,4 +15,4 @@ There is no set code style, everyone can contribute in their own prefered ways a
 - Windows Subsystem For Linux
 - [Download curl 7.74 x64](https://curl.se/windows/) & extract the 'include' & 'lib' folders into 'Stryxus.Lib/curl/include' & 'Stryxus.Lib/curl/lib' & 'Stryxus.Lib/curl/bin/libcurl-x64.dll'
 - [Download OpenSSL 1.1.1i x64](https://curl.se/windows/) & extract the 'libssl-1_1-x64.dll' & 'libcrypto-1_1-x64.dll' files into the 'Stryxus.Lib/curl/bin' folder
-- Run ```./build.cmd``` in the View -> Terminal window just once unless the dependencies break
+- Run ```./build``` in the View -> Terminal window just once unless the dependencies break
