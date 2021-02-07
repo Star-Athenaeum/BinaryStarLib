@@ -1,15 +1,20 @@
-#include "pch.h"
+#include "stdc.h"
 #include "sl_io.h"
 
 bool file_exists(const char* file_path)
 {
-	struct stat buffer;
-	return stat(file_path, &buffer) == 0;
+	FILE* f;
+	if (fopen_s(&f, file_path, "r"))
+	{
+		if (f) return fclose(f);
+		else return false;
+	}
+	else return false;
 }
 
 void create_file(const char* file_path)
 {
-	FILE *f;
+	FILE* f;
 	fopen_s(&f, file_path, "r");
 	if (f != NULL) fclose(f);
 }

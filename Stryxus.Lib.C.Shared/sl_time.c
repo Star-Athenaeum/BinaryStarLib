@@ -1,2 +1,2 @@
-#include "pch.h"
+#include "stdc.h"
 #include "sl_time.h"

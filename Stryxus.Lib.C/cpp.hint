@@ -1,3 +1,0 @@
-#define NULL
-#define NULL ((void *)0)
-#define cJSON_ArrayForEach(element, array) for(element = (array != NULL) ? (array)->child : NULL; element != NULL; element = element->next)

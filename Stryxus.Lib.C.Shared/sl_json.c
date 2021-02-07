@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "stdc.h"
 #include "sl_json.h"
 
 bool json_entry_exists(const cJSON* json, const char* key)

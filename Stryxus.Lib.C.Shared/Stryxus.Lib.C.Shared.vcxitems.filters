@@ -9,12 +9,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_json.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_net.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\stdc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)pch.c">
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_json.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_net.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\stdc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

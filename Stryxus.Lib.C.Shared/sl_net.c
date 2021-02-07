@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "stdc.h"
 #include "sl_net.h"
 
 #include "curl/curl.h"
