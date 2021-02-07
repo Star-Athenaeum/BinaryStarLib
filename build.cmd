@@ -28,7 +28,7 @@ echo.
 echo -------------------- BUILDING cJSON --------------------
 echo.
 echo.
-cmake --build . --target %~dpBuild\Debug\cJSON\ALL_BUILD
+cmake --build . --target %~dp0Build\Debug\cJSON\ALL_BUILD
 echo.
 echo.
 echo.
