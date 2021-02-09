@@ -7,7 +7,7 @@ static struct cmap_dll_handle* handles;
 
 static bool libraries_loaded = false;
 
-void load_libraries(char* lib_names[])
+void load_libraries(char* lib_names[], int count)
 {
 	if (libraries_loaded)
 	{
@@ -15,8 +15,8 @@ void load_libraries(char* lib_names[])
 		return;
 	}
 	//if (sizeof library_names > NT_LIBRARIES_COUNT) Log error
-	handles = (struct cmap_dll_handle[sizeof lib_names]){ 0 };
-	for (int i = 0; i < sizeof lib_names; i++)
+	handles = (struct cmap_dll_handle[100]){ 0 };
+	for (int i = 0; i < count; i++)
 	{
 		HMODULE m = LoadLibrary(lib_names[i]);
 		//if (m == NULL) Logger::log_last_error();
@@ -46,14 +46,13 @@ void free_libraries()
 {
 	for (int i = 0; i < sizeof handles; i++) FreeLibrary(handles[i].module_alloc);
 }
-#endif
 
-#ifdef KERNEL_LINUX
+#elif KERNEL_LINUX
 static struct cmap_dll_handle* handles;
 
 static bool libraries_loaded = false;
 
-void load_libraries(char* lib_names[])
+void load_libraries(char* lib_names[], int count)
 {
 	if (libraries_loaded)
 	{
@@ -61,8 +60,8 @@ void load_libraries(char* lib_names[])
 		return;
 	}
 	//if (sizeof library_names > NT_LIBRARIES_COUNT) Log error
-	handles = (struct cmap_dll_handle[sizeof lib_names]){ 0 };
-	for (int i = 0; i < sizeof lib_names; i++)
+	handles = (struct cmap_dll_handle[100]){ 0 };
+	for (int i = 0; i < count; i++)
 	{
 		void* m = dlopen(lib_names[i], RTLD_LAZY);
 		//if (m == NULL) Logger::log_last_error(dlerror());

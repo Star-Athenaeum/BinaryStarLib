@@ -4,7 +4,7 @@
 int main()
 {
     char* libraries[1] = { "libcurl-x64.dll" };
-    load_libraries(libraries);
+    load_libraries(libraries, sizeof(libraries) / sizeof(char*));
 
     // Time
 
