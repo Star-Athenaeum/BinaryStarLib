@@ -1,3 +1,4 @@
+#include "stdc.h"
 #include "stryxuslib.h"
 
 int init_stryxus_lib()
