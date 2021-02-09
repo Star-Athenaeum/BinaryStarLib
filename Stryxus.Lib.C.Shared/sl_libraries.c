@@ -7,7 +7,7 @@ static struct cmap_dll_handle* handles;
 
 static bool libraries_loaded = false;
 
-void load_libraries(char** lib_names)
+void load_libraries(char* lib_names[])
 {
 	if (libraries_loaded)
 	{
@@ -53,7 +53,7 @@ static struct cmap_dll_handle* handles;
 
 static bool libraries_loaded = false;
 
-void load_libraries(char** lib_names)
+void load_libraries(char* lib_names[])
 {
 	if (libraries_loaded)
 	{
