@@ -1,11 +1,5 @@
-#include "stdc.h"
+#include "stryxuslib.h"
 #include "c_tests.h"
-
-#include "sl_io.h"
-#include "sl_json.h"
-#include "sl_net.h"
-#include "sl_string.h"
-#include "sl_time.h"
 
 int main()
 {

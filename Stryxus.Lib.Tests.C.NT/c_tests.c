@@ -1,11 +1,10 @@
-#include "stdc.h"
+#include "stryxuslib.h"
 #include "c_tests.h"
-
-#include ""
 
 int main()
 {
-    load_stryxus_lib();
+    char* libraries[1] = { "libcurl-x64.dll" };
+    load_libraries(libraries);
 
     // Time
 
