@@ -7,7 +7,7 @@ void create_file(const char* file_path);
 
 typedef enum
 {
-	BYTE,
+	BASE_BYTE,
 	KILO_BYTE,
 	MEGA_BYTE,
 	GIGA_BYTE,
@@ -20,7 +20,7 @@ typedef enum
 
 typedef enum
 {
-	BIT,
+	BASE_BIT,
 	KILO_BIT,
 	MEGA_BIT,
 	GIGA_BIT,

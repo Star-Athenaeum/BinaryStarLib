@@ -65,9 +65,9 @@ unsigned long	bytes_in_yotta;
 
 void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BYTE)
+	if (from_magnitude == BASE_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -79,7 +79,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == KILO_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -91,7 +91,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == MEGA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -103,7 +103,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == GIGA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -115,7 +115,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == TERRA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -127,7 +127,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == PETTA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -139,7 +139,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == EXA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -151,7 +151,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == ZETTA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -163,7 +163,7 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == YOTTA_BYTE)
 	{
-		if (to_magnitude == BIT)				*value = *value * base_byte;
+		if (to_magnitude == BASE_BIT)				*value = *value * base_byte;
 		else if (to_magnitude == KILO_BIT)		*value = (*value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		*value = (*value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		*value = (*value / bytes_in_giga) * base_byte;
@@ -177,9 +177,9 @@ void convert_data_magnitude_to_bits(double* value, BYTE_MAGNITUDE from_magnitude
 
 void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BIT)
+	if (from_magnitude == BASE_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = *value / base_byte;
+		if (to_magnitude == BASE_BYTE)				*value = *value / base_byte;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) / bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) / bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) / bytes_in_giga;
@@ -191,7 +191,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == KILO_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_kilo;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == KILO_BYTE)		*value = *value / base_byte;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) / bytes_in_kilo;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) / bytes_in_mega;
@@ -203,7 +203,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == MEGA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_mega;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_mega;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value / base_byte;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) / bytes_in_kilo;
@@ -215,7 +215,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == GIGA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_giga;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_giga;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_mega;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value / base_byte;
@@ -227,7 +227,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == TERRA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_terra;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_terra;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_giga;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) * bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) * bytes_in_kilo;
@@ -239,7 +239,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == PETTA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_petta;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_petta;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_terra;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) * bytes_in_giga;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) * bytes_in_mega;
@@ -251,7 +251,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == EXA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_exa;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_exa;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_petta;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) * bytes_in_terra;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) * bytes_in_giga;
@@ -263,7 +263,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == ZETTA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_zetta;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_zetta;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_exa;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) * bytes_in_petta;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) * bytes_in_terra;
@@ -275,7 +275,7 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 	}
 	else if (from_magnitude == YOTTA_BIT)
 	{
-		if (to_magnitude == BYTE)				*value = (*value / base_byte) * bytes_in_yotta;
+		if (to_magnitude == BASE_BYTE)				*value = (*value / base_byte) * bytes_in_yotta;
 		else if (to_magnitude == KILO_BYTE)		*value = (*value / base_byte) * bytes_in_zetta;
 		else if (to_magnitude == MEGA_BYTE)		*value = (*value / base_byte) * bytes_in_exa;
 		else if (to_magnitude == GIGA_BYTE)		*value = (*value / base_byte) * bytes_in_petta;
@@ -289,9 +289,9 @@ void convert_data_magnitude_to_bytes(double* value, BIT_MAGNITUDE from_magnitude
 
 void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BIT)
+	if (from_magnitude == BASE_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value;
+		if (to_magnitude == BASE_BIT)				*value = *value;
 		else if (to_magnitude == KILO_BIT)		*value = *value / bits_in_kilo;
 		else if (to_magnitude == MEGA_BIT)		*value = *value / bits_in_mega;
 		else if (to_magnitude == GIGA_BIT)		*value = *value / bits_in_giga;
@@ -303,7 +303,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == KILO_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value;
 		else if (to_magnitude == MEGA_BIT)		*value = *value / bits_in_mega;
 		else if (to_magnitude == GIGA_BIT)		*value = *value / bits_in_giga;
@@ -315,7 +315,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == MEGA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value;
 		else if (to_magnitude == GIGA_BIT)		*value = *value / bits_in_giga;
@@ -327,7 +327,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == GIGA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		*value = *value;
@@ -339,7 +339,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == TERRA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		*value = *value * bits_in_terra;
@@ -351,7 +351,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == PETTA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		*value = *value * bits_in_terra;
@@ -363,7 +363,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == EXA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		*value = *value * bits_in_terra;
@@ -375,7 +375,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == ZETTA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		*value = *value * bits_in_terra;
@@ -387,7 +387,7 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 	}
 	else if (from_magnitude == YOTTA_BIT)
 	{
-		if (to_magnitude == BIT)				*value = *value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)				*value = *value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		*value = *value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		*value = *value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		*value = *value * bits_in_terra;
@@ -401,9 +401,9 @@ void convert_data_magnitude_in_bits(double* value, BIT_MAGNITUDE from_magnitude,
 
 void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BYTE)
+	if (from_magnitude == BASE_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value;
+		if (to_magnitude == BASE_BYTE)				*value = *value;
 		else if (to_magnitude == KILO_BYTE)		*value = *value / bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value / bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value / bytes_in_giga;
@@ -415,7 +415,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == KILO_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_kilo;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_kilo;
 		else if (to_magnitude == KILO_BYTE)		*value = *value;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value / bytes_in_zetta;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value / bytes_in_exa;
@@ -427,7 +427,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == MEGA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_mega;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_mega;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value / bytes_in_exa;
@@ -439,7 +439,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == GIGA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_giga;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_giga;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_mega;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value * bytes_in_kilo;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value;
@@ -451,7 +451,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == TERRA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_terra;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_terra;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_giga;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value * bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value * bytes_in_kilo;
@@ -463,7 +463,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == PETTA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_petta;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_petta;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_terra;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value * bytes_in_giga;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value * bytes_in_mega;
@@ -475,7 +475,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == EXA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_yotta;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_yotta;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_zetta;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value * bytes_in_exa;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value * bytes_in_petta;
@@ -487,7 +487,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == ZETTA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_zetta;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_zetta;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_exa;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value * bytes_in_petta;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value * bytes_in_terra;
@@ -499,7 +499,7 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 	}
 	else if (from_magnitude == YOTTA_BYTE)
 	{
-		if (to_magnitude == BYTE)				*value = *value * bytes_in_yotta;
+		if (to_magnitude == BASE_BYTE)				*value = *value * bytes_in_yotta;
 		else if (to_magnitude == KILO_BYTE)		*value = *value * bytes_in_zetta;
 		else if (to_magnitude == MEGA_BYTE)		*value = *value * bytes_in_exa;
 		else if (to_magnitude == GIGA_BYTE)		*value = *value * bytes_in_petta;
@@ -513,9 +513,9 @@ void convert_data_magnitude_in_bytes(double* value, BYTE_MAGNITUDE from_magnitud
 
 double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BYTE)
+	if (from_magnitude == BASE_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -527,7 +527,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == KILO_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -539,7 +539,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == MEGA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -551,7 +551,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == GIGA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -563,7 +563,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == TERRA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -575,7 +575,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == PETTA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -587,7 +587,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == EXA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -599,7 +599,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == ZETTA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -611,7 +611,7 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == YOTTA_BYTE)
 	{
-		if (to_magnitude == BIT)				return value * base_byte;
+		if (to_magnitude == BASE_BIT)				return value * base_byte;
 		else if (to_magnitude == KILO_BIT)		return (value / bytes_in_kilo) * base_byte;
 		else if (to_magnitude == MEGA_BIT)		return (value / bytes_in_mega) * base_byte;
 		else if (to_magnitude == GIGA_BIT)		return (value / bytes_in_giga) * base_byte;
@@ -626,9 +626,9 @@ double convert_data_magnitude_to_bits_copy(double value, BYTE_MAGNITUDE from_mag
 
 double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BIT)
+	if (from_magnitude == BASE_BIT)
 	{
-		if (to_magnitude == BYTE)				return value / base_byte;
+		if (to_magnitude == BASE_BYTE)				return value / base_byte;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) / bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) / bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) / bytes_in_giga;
@@ -640,7 +640,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == KILO_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_kilo;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == KILO_BYTE)		return value / base_byte;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) / bytes_in_kilo;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) / bytes_in_mega;
@@ -652,7 +652,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == MEGA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_mega;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_mega;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		return value / base_byte;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) / bytes_in_kilo;
@@ -664,7 +664,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == GIGA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_giga;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_giga;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_mega;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) * bytes_in_kilo;
 		else if (to_magnitude == GIGA_BYTE)		return value / base_byte;
@@ -676,7 +676,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == TERRA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_terra;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_terra;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_giga;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) * bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) * bytes_in_kilo;
@@ -688,7 +688,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == PETTA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_petta;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_petta;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_terra;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) * bytes_in_giga;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) * bytes_in_mega;
@@ -700,7 +700,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == EXA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_exa;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_exa;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_petta;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) * bytes_in_terra;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) * bytes_in_giga;
@@ -712,7 +712,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == ZETTA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_zetta;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_zetta;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_exa;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) * bytes_in_petta;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) * bytes_in_terra;
@@ -724,7 +724,7 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 	}
 	else if (from_magnitude == YOTTA_BIT)
 	{
-		if (to_magnitude == BYTE)				return (value / base_byte) * bytes_in_yotta;
+		if (to_magnitude == BASE_BYTE)				return (value / base_byte) * bytes_in_yotta;
 		else if (to_magnitude == KILO_BYTE)		return (value / base_byte) * bytes_in_zetta;
 		else if (to_magnitude == MEGA_BYTE)		return (value / base_byte) * bytes_in_exa;
 		else if (to_magnitude == GIGA_BYTE)		return (value / base_byte) * bytes_in_petta;
@@ -739,9 +739,9 @@ double convert_data_magnitude_to_bytes_copy(double value, BIT_MAGNITUDE from_mag
 
 double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magnitude, BIT_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BIT)
+	if (from_magnitude == BASE_BIT)
 	{
-		if (to_magnitude == BIT)					value = value;
+		if (to_magnitude == BASE_BIT)					value = value;
 		else if (to_magnitude == KILO_BIT)		return value / bits_in_kilo;
 		else if (to_magnitude == MEGA_BIT)		return value / bits_in_mega;
 		else if (to_magnitude == GIGA_BIT)		return value / bits_in_giga;
@@ -753,7 +753,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == KILO_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		value = value;
 		else if (to_magnitude == MEGA_BIT)		return value / bits_in_mega;
 		else if (to_magnitude == GIGA_BIT)		return value / bits_in_giga;
@@ -765,7 +765,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == MEGA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		value = value;
 		else if (to_magnitude == GIGA_BIT)		return value / bits_in_giga;
@@ -777,7 +777,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == GIGA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		return value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		value = value;
@@ -789,7 +789,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == TERRA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		return value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		return value * bits_in_terra;
@@ -801,7 +801,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == PETTA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		return value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		return value * bits_in_terra;
@@ -813,7 +813,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == EXA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		return value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		return value * bits_in_terra;
@@ -825,7 +825,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == ZETTA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		return value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		return value * bits_in_terra;
@@ -837,7 +837,7 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 	}
 	else if (from_magnitude == YOTTA_BIT)
 	{
-		if (to_magnitude == BIT)					return value * bits_in_kilo;
+		if (to_magnitude == BASE_BIT)					return value * bits_in_kilo;
 		else if (to_magnitude == KILO_BIT)		return value * bits_in_mega;
 		else if (to_magnitude == MEGA_BIT)		return value * bits_in_giga;
 		else if (to_magnitude == GIGA_BIT)		return value * bits_in_terra;
@@ -852,9 +852,9 @@ double convert_data_magnitude_in_bits_copy(double value, BIT_MAGNITUDE from_magn
 
 double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_magnitude, BYTE_MAGNITUDE to_magnitude)
 {
-	if (from_magnitude == BYTE)
+	if (from_magnitude == BASE_BYTE)
 	{
-		if (to_magnitude == BYTE)				value = value;
+		if (to_magnitude == BASE_BYTE)				value = value;
 		else if (to_magnitude == KILO_BYTE)		return value / bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		return value / bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		return value / bytes_in_giga;
@@ -866,7 +866,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == KILO_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_kilo;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_kilo;
 		else if (to_magnitude == KILO_BYTE)		value = value;
 		else if (to_magnitude == MEGA_BYTE)		return value / bytes_in_zetta;
 		else if (to_magnitude == GIGA_BYTE)		return value / bytes_in_exa;
@@ -878,7 +878,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == MEGA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_mega;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_mega;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_kilo;
 		else if (to_magnitude == MEGA_BYTE)		value = value;
 		else if (to_magnitude == GIGA_BYTE)		return value / bytes_in_exa;
@@ -890,7 +890,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == GIGA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_giga;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_giga;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_mega;
 		else if (to_magnitude == MEGA_BYTE)		return value * bytes_in_kilo;
 		else if (to_magnitude == GIGA_BYTE)		value = value;
@@ -902,7 +902,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == TERRA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_terra;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_terra;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_giga;
 		else if (to_magnitude == MEGA_BYTE)		return value * bytes_in_mega;
 		else if (to_magnitude == GIGA_BYTE)		return value * bytes_in_kilo;
@@ -914,7 +914,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == PETTA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_petta;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_petta;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_terra;
 		else if (to_magnitude == MEGA_BYTE)		return value * bytes_in_giga;
 		else if (to_magnitude == GIGA_BYTE)		return value * bytes_in_mega;
@@ -926,7 +926,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == EXA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_yotta;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_yotta;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_zetta;
 		else if (to_magnitude == MEGA_BYTE)		return value * bytes_in_exa;
 		else if (to_magnitude == GIGA_BYTE)		return value * bytes_in_petta;
@@ -938,7 +938,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == ZETTA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_zetta;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_zetta;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_exa;
 		else if (to_magnitude == MEGA_BYTE)		return value * bytes_in_petta;
 		else if (to_magnitude == GIGA_BYTE)		return value * bytes_in_terra;
@@ -950,7 +950,7 @@ double convert_data_magnitude_in_bytes_copy(double value, BYTE_MAGNITUDE from_ma
 	}
 	else if (from_magnitude == YOTTA_BYTE)
 	{
-		if (to_magnitude == BYTE)				return value * bytes_in_yotta;
+		if (to_magnitude == BASE_BYTE)				return value * bytes_in_yotta;
 		else if (to_magnitude == KILO_BYTE)		return value * bytes_in_zetta;
 		else if (to_magnitude == MEGA_BYTE)		return value * bytes_in_exa;
 		else if (to_magnitude == GIGA_BYTE)		return value * bytes_in_petta;
