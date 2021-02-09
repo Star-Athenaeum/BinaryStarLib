@@ -39,8 +39,6 @@
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <Windows.h>
-#endif
-
-#ifdef KERNEL_LINUX
+#elif KERNEL_LINUX
 #include <dlfcn.h>
 #endif
