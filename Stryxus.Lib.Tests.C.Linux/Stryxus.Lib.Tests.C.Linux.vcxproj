@@ -40,11 +40,6 @@
   <ItemGroup>
     <ClCompile Include="c_tests.c" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Stryxus.Lib.C.Linux\Stryxus.Lib.C.Linux.vcxproj">
-      <Project>{51abd250-fcb8-4973-bc8b-01f9ce2b0d25}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{77cb82a9-fb06-4ae8-a7a3-cb6e79035e65}</ProjectGuid>
     <Keyword>Linux</Keyword>
@@ -83,12 +78,15 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Label="Shared" />
+  <ImportGroup Label="Shared">
+    <Import Project="..\Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)curl\include;$(SolutionDir)cJSON;%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>KERNEL_LINUX;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)curl\lib;$(SolutionDir)Build\Debug\cJSON\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -97,4 +95,15 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
+  <ItemGroup>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_collections.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_libraries.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_linux_collections.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+  </ItemGroup>
 </Project>

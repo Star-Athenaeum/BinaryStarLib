@@ -27,10 +27,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)sl_collections.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)stryxuslib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)stryxuslib.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_collections.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,11 +53,17 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_time.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stryxuslib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_collections.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)stryxuslib.c">
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_libraries.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_libraries.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

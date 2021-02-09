@@ -25,6 +25,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_collections.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_libraries.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_libraries.h" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdc.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_io.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_json.c" />

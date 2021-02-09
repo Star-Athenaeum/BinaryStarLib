@@ -9,9 +9,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdcpp.hpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdcpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)stdcpp.cpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdcpp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -24,11 +24,6 @@
   <ItemGroup>
     <ClCompile Include="c_tests.c" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Stryxus.Lib.C.NT\Stryxus.Lib.C.NT.vcxproj">
-      <Project>{5b40e76d-9fd3-416e-8849-14ad9a1d4e3a}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -66,7 +61,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared" />
+  <ImportGroup Label="Shared">
+    <Import Project="..\Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -124,7 +121,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>KERNEL_NT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -158,4 +155,15 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ItemGroup>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_collections.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_libraries.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_linux_collections.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+  </ItemGroup>
 </Project>

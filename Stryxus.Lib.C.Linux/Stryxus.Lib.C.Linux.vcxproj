@@ -83,6 +83,15 @@
     </ProjectPublicIncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_collections.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_libraries.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\sl_linux_collections.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
     <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\stdc.c">
       <FileType>CppCode</FileType>
     </ClCompile>
@@ -94,8 +103,7 @@
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)curl\include;$(SolutionDir)cJSON;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>
-      </PreprocessorDefinitions>
+      <PreprocessorDefinitions>KERNEL_LINUX;</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
