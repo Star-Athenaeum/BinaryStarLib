@@ -8,7 +8,7 @@ int main()
 
     // Time
 
-    printf(milliseconds_to_time_string(60000L));
+    printf(milliseconds_to_time_string(6000000L));
     //printf(milliseconds_to_date_string(60000L));
 
     //

@@ -1,85 +1,85 @@
 #include "stdc.h"
 #include "sl_time.h"
 
-long long milliseconds_to_seconds(long long milliseconds)
+double milliseconds_to_seconds(long long milliseconds)
 {
 	return milliseconds / 1000L;
 }
 
-long long milliseconds_to_minutes(long long milliseconds)
+double milliseconds_to_minutes(long long milliseconds)
 {
 	return milliseconds / 1000L / 60L;
 }
 
-long long milliseconds_to_hours(long long milliseconds)
+double milliseconds_to_hours(long long milliseconds)
 {
 	return milliseconds / 1000L / 60L / 60L;
 }
 
-long long milliseconds_to_days(long long milliseconds)
+double milliseconds_to_days(long long milliseconds)
 {
 	return milliseconds / 1000L / 60L / 60L / 24L;
 }
 
-long long milliseconds_to_weeks(long long milliseconds)
+double milliseconds_to_weeks(long long milliseconds)
 {
 	return milliseconds / 1000L / 60L / 60L / 24L / 7L;
 }
 
-long long milliseconds_to_months(long long milliseconds)
+double milliseconds_to_months(long long milliseconds)
 {
 	return milliseconds / 1000L / 60L / 60L / 24L / 7L / 4L;
 }
 
-long long milliseconds_to_years(long long milliseconds)
+double milliseconds_to_years(long long milliseconds)
 {
 	return milliseconds / 1000L / 60L / 60L / 24L / 7L / 4L / 12L;
 }
 
 char* milliseconds_to_time_string(long long milliseconds)
 {
-	long long h = milliseconds / 1000L / 60L / 60L;
-	milliseconds = milliseconds - 1000L * 60L * 60L * h;
-	long long m = milliseconds / 1000L / 60L;
-	milliseconds = milliseconds - 1000L * 60L * m;
-	long long s = milliseconds / 1000L;
-	milliseconds = milliseconds - 1000L * s;
+	unsigned int s = (unsigned int)(milliseconds * pow(10, -3)) % 60;
+	unsigned int m = (unsigned int)((milliseconds * pow(10, -3)) / 60) % 60;
+	unsigned int h = (unsigned int)((milliseconds * pow(10, -3)) / 60 / 60) % 60;
 
-	char* h_char = "";
-	char* m_char = "";
-	char* s_char = "";
+	int h_len = snprintf(NULL, 0, "%d", h) + 2;
+	int m_len = snprintf(NULL, 0, "%d", m) + 2;
+	int s_len = snprintf(NULL, 0, "%d", s) /* FIRST CHARACTER FILL & NULL TERMINATOR */ + 2;
 
-	snprintf(h_char, sizeof(long long), h);
-	snprintf(m_char, sizeof(long long), m);
-	snprintf(s_char, sizeof(long long), s);
+	char* h_char = malloc(h_len);
+	char* m_char = malloc(m_len);
+	char* s_char = malloc(s_len);
 
-	char* result = "";
-	strcat_s(result, strlen(h_char) + strlen(m_char) + strlen(s_char) + 2, h_char, ":", m_char, ":", s_char);
+	snprintf(h_char, h_len, "%s%d", h < 10 ? "0" : "", h);
+	snprintf(m_char, m_len, "%s%d", m < 10 ? "0" : "", m);
+	snprintf(s_char, s_len, "%s%d", s < 10 ? "0" : "", s);
+
+	int full_length = sizeof(h_char) + sizeof(m_char) + sizeof(s_char) + 1;
+	char* result = malloc(full_length);
+	snprintf(result, full_length, "%s%s%s%s%s", h_char, ":", m_char, ":", s_char);
 	return result;
 }
 
 char* milliseconds_to_date_string(long long milliseconds)
 {
-	long long y = milliseconds / 1000L / 60L / 60L / 4L / 7L / 4L / 12L;
-	milliseconds = milliseconds - 1000L * 60L * 60L;
-	milliseconds = milliseconds * 24L * 24L;
-	milliseconds = milliseconds * 7L * 4L * 12L * y;
-	long long m = milliseconds / 1000L / 60L / 60L / 24L / 7L / 4L;
-	milliseconds = milliseconds - 1000L * 60L * 60L;
-	milliseconds = milliseconds * 24L * 24L;
-	milliseconds = milliseconds * 7L * 4L * m;
-	long long d = milliseconds / 1000 / 60L / 60L / 24L;
-	milliseconds = milliseconds - 1000L * 60L * 60L * 24L * d;
+	double y = (milliseconds / 3.6) * pow(10, -3) * pow(10, -3);
+	double m = (milliseconds / 6)	* pow(10, -3) * pow(10, -1);
+	double d = (milliseconds / 1)	* pow(10, -3) * 10;
 
-	char* y_char = "";
-	char* m_char = "";
-	char* d_char = "";
+	char y_char[sizeof y];
+	char m_char[sizeof m];
+	char d_char[sizeof d];
 
-	snprintf(y_char, sizeof(long long), y);
-	snprintf(m_char, sizeof(long long), m);
-	snprintf(d_char, sizeof(long long), d);
-
-	char* result = "";
-	strcat_s(result, strlen(y_char) + strlen(m_char) + strlen(d_char) + 2, y_char, ":", m_char, ":", d_char);
-	return result;
+	if (snprintf(y_char, sizeof y, "%f", y) && snprintf(m_char, sizeof m, "%f", m) && snprintf(d_char, sizeof d, "%f", d))
+	{
+		int result_len = sizeof(char) * (sizeof y_char + sizeof m_char + sizeof d_char + 2);
+		char* result = (char*)malloc(result_len);
+		if (result)
+		{
+			strcat_s(result, sizeof result, d_char, ":", m_char, ":", y_char);
+			return result;
+		}
+		else return (char*)-1;
+	}
+	else return (char*)-1;
 }
