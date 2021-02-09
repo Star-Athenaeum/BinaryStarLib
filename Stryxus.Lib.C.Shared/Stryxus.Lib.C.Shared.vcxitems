@@ -14,19 +14,23 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)sl_collections.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdc.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_io.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_json.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_net.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_string.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)sl_time.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stryxuslib.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sl_collections.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdc.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_io.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_json.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_net.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_string.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)sl_time.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stryxuslib.c" />
   </ItemGroup>
 </Project>

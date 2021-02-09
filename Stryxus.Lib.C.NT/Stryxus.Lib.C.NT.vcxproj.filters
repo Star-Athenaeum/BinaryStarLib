@@ -10,4 +10,32 @@
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sl_nt_libraries.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdc_nt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stryxuslib_nt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sl_nt_collections.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sl_nt_libraries.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdc_nt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stryxuslib_nt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sl_nt_collections.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

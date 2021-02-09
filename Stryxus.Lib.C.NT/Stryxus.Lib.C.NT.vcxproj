@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -151,6 +151,16 @@
     <ClCompile Update="D:\Projects\Stryxus.Lib\Stryxus.Lib.C.Shared\stdc.c">
       <FileType>CppCode</FileType>
     </ClCompile>
+    <ClCompile Include="sl_nt_collections.c" />
+    <ClCompile Include="sl_nt_libraries.c" />
+    <ClCompile Include="stdc_nt.c" />
+    <ClCompile Include="stryxuslib_nt.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sl_nt_collections.h" />
+    <ClInclude Include="sl_nt_libraries.h" />
+    <ClInclude Include="stdc_nt.h" />
+    <ClInclude Include="stryxuslib_nt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

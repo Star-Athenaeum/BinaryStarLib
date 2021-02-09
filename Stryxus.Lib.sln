@@ -77,12 +77,10 @@ Global
 		Stryxus.Lib.AspNet.Shared\Stryxus.Lib.AspNet.Shared.projitems*{3725c8ad-6750-4c06-b2f6-2c07360ec315}*SharedItemsImports = 13
 		Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems*{51abd250-fcb8-4973-bc8b-01f9ce2b0d25}*SharedItemsImports = 4
 		Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems*{5b40e76d-9fd3-416e-8849-14ad9a1d4e3a}*SharedItemsImports = 4
-		Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems*{77cb82a9-fb06-4ae8-a7a3-cb6e79035e65}*SharedItemsImports = 4
 		Stryxus.Lib.CPP.Shared\Stryxus.Lib.CPP.Shared.vcxitems*{7d5aeeca-1eed-44b6-b36c-c3d88a8530d0}*SharedItemsImports = 4
 		Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems*{822b8655-3b59-4c1f-85c5-2e2bbb90e4ab}*SharedItemsImports = 9
 		Stryxus.Lib.CPP.Shared\Stryxus.Lib.CPP.Shared.vcxitems*{a0efa4c3-08e6-48f1-b256-f621ea5ff204}*SharedItemsImports = 9
 		Stryxus.Lib.CPP.Shared\Stryxus.Lib.CPP.Shared.vcxitems*{a519fc3e-127d-41d0-9df7-7d2d08523135}*SharedItemsImports = 4
-		Stryxus.Lib.C.Shared\Stryxus.Lib.C.Shared.vcxitems*{c2595ffc-37b5-4a95-ae08-f63785625462}*SharedItemsImports = 4
 		Stryxus.Lib.CPP.Shared\Stryxus.Lib.CPP.Shared.vcxitems*{ed561bdc-8f67-4138-947d-a27c9d8d610e}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
