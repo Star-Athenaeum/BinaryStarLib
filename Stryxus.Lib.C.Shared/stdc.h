@@ -33,3 +33,14 @@
 #include <uchar.h>				// C11 - Types and functions for manipulating Unicode characters
 #include <wchar.h>				// NA1 - Defines wide - string - handling functions
 #include <wctype.h>				// NA1 - Defines set of functions used to classify wide characters by their types or to convert between upper and lower case
+
+#ifdef KERNEL_NT
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <Windows.h>
+#endif
+
+#ifdef KERNEL_LINUX
+#include <dlfcn.h>
+#endif
