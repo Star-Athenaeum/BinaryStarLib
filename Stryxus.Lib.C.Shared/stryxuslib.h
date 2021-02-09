@@ -8,5 +8,3 @@
 #include "sl_net.h"
 #include "sl_string.h"
 #include "sl_time.h"
-
-int init_stryxus_lib();
