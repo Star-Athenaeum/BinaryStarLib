@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ee0d4c0c-d778-4369-b689-9ef058b40997</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>StryxusLib.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ArgumentHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DirectoryInfoExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\FileInfoExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\GlobalSuppressions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ProcessExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileSystem\FileIOHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileSystem\FileSystemHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileSystem\JsonHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalSuppressions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\Abstractions\DirectX.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\Abstractions\Vulkan.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\CommonInformationModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\Hardware\AudioProcessingUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\Hardware\CentralProcessingUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\Hardware\GraphicalProcessingUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\OperatingSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime.cs" />
+  </ItemGroup>
+</Project>
