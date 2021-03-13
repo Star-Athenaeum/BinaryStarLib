@@ -18,8 +18,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.1" />
   </ItemGroup>
 
-  <Import Project="..\Stryxus.Lib.AspNet.Shared\Stryxus.Lib.AspNet.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\Stryxus.Lib\Stryxus.Lib.csproj" />
+  </ItemGroup>
 
-  <Import Project="..\StryxusLib.Shared\StryxusLib.Shared.projitems" Label="Shared" />
+  <Import Project="..\Stryxus.Lib.AspNet.Shared\Stryxus.Lib.AspNet.Shared.projitems" Label="Shared" />
 
 </Project>
