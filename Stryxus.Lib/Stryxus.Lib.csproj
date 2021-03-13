@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net5.0;netstandard2.1</TargetFramework>
 		<Platforms>x64</Platforms>
 		<AssemblyName>Stryxus.Lib</AssemblyName>
 		<RootNamespace>Stryxus.Lib</RootNamespace>
