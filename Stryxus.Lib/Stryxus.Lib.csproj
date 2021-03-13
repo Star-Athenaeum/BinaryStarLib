@@ -2,13 +2,18 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
-		<Platforms>x64</Platforms>
+		<Platforms>x64;AnyCPU</Platforms>
 		<AssemblyName>Stryxus.Lib</AssemblyName>
 		<RootNamespace>Stryxus.Lib</RootNamespace>
 		<LangVersion>9.0</LangVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <DebugType>none</DebugType>
+	  <DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <DebugType>none</DebugType>
 	  <DebugSymbols>false</DebugSymbols>
 	</PropertyGroup>
