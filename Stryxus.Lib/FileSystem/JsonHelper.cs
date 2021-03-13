@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
+
+using Newtonsoft.Json;
 
 namespace Stryxus.Lib.FileSystem
 {
@@ -12,13 +13,13 @@ namespace Stryxus.Lib.FileSystem
 		{
 			if (data == null) throw new ArgumentNullException(nameof(data));
 			if (info == null) throw new ArgumentNullException(nameof(info));
-			await FileIOHelper.WriteText(info, Encoding.UTF8.GetString(JsonSerializer.SerializeToUtf8Bytes(data)), Encoding.UTF8);
+			await FileIOHelper.WriteText(info, JsonConvert.SerializeObject(data), Encoding.UTF8);
 		}
 
 		public static async Task<T> ReadJSON<T>(FileInfo info) where T : new()
 		{
 			if (info == null) throw new ArgumentNullException(nameof(info));
-			return JsonSerializer.DeserializeAsync<T>(await FileIOHelper.OpenStream(info)).Result;
+			return JsonConvert.DeserializeObject<T>(await FileIOHelper.ReadText(info));
 		}
 	}
 }
